@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content=initial-scale=0.333333"> -->
+    <title>Document</title>
+    <script>
+
+        var ratio = 1 / window.devicePixelRatio;
+        var meta = document.createElement('meta')
+        meta.name = 'viewport';
+        meta.content = 'initial-scale=' + ratio;
+        var head = document.querySelector('head');
+        head.appendChild(meta);
+
+        // 把屏幕等分成10份 1rem = 屏幕宽度/10
+        var width = window.innerWidth / 10;
+        var html = document.querySelector('html');
+        // 每一份 就是 1rem (font-size = 1rem )
+        html.style.fontSize = width + 'px';  //1rem = html的 font-size
+    </script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        html{
+            /* 不同的设备上调整 html 的 font-size 适配 */
+            /* 调整多少  结合设计稿 */
+            /* 设备物理像素 / 逻辑像素(1px) = DPR */
+            font-size: 20px;
+        }
+        div{
+            /* font-size: 30px;
+            width: 3rem;
+            height: 3rem;
+            background-color: green; */
+        }
+        input{
+            height: 0.746666666667rem;
+            width: 5.92rem;
+            /* height: 56px;
+            width: 444px; */
+            /*  */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text">
+    </div>
+</body>
+</html>

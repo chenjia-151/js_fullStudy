@@ -1,0 +1,21 @@
+ctrl + C 复制整行
+ctrl + Enter 光标跳到下一行
+ctrl + Shift + Enter 在此光标上一行增加一行
+ctrl+shift+f   格式化标签，使标签对齐
+shift + alt + 方向键  复制选中部分内容到该方向
+ctrl + `   调出命令行终端
+ctrl+d  选中相同的代码
+tab 键用的很多，用来补全代码，如标签，打h2，按tab键补全标签
+再比如这样的写法： span.f#k 然后按tab键,补全为<span class="f" id="k"></span>
+直接 使用类名的话默认是div下的类名 如， .sd  按tab，补全为<div class="sd"></div>
+再比如 .s1>span#ss*5  补全为
+<div class="s1">
+        <span id="ss"></span>
+        <span id="ss"></span>
+        <span id="ss"></span>
+        <span id="ss"></span>
+        <span id="ss"></span>
+</div>
+
+
+在代码中任何地方输入属性名或者标签名出现提示就可以按tab键来补全代码

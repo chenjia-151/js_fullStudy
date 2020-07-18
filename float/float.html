@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* font-size: 0; */
+        }
+        ul li{
+            list-style: none;  /* 列表的样式*/
+        }
+        .item{
+            width: 100px;
+            height: 50px;
+            background-color: aqua;
+            font-size: 20px; /*字体大小*/
+            text-align: center;/*文本居中显示*/
+            line-height: 50px; /*将行高设置成和容器一样高 使文本居中 */
+            /* display: inline-block;使文本不浮动，同时显示到同一行 */
+            float: left; /*左浮动 */
+        }
+        .title{
+            width: 100px;
+            height: 50px;
+            background-color: brown;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="items">
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+        <li class="item">5</li>
+    </ul>
+    <!-- <div style="clear: left;"></div> -->
+    <div class="title">6</div>
+</body>
+</html>

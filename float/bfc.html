@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* 默认样式 */
+            margin: 0;
+            padding: 0;
+        }
+        .page{
+            margin-top: 100px;/* 与顶部的间隔*/
+            width: 100%;
+            height: 200px;
+            background-color: red;
+            /* overflow: hidden;超出部分隐藏 */
+            /* overflow: scroll;  超出部分滚动，出现一个滚动条 */
+            /* display: flex; 弹性 */
+            /* position: absolute; 绝对定位 */
+            /* position: fixed; 相对整个window来定义 */
+            /* float: left;  浮动，让一个容器变成一个BFC 容器 */
+        }
+        .header{
+            width: 100%;
+            height: 100px;
+            background-color: blueviolet;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header"></div>
+    </div>
+</body>
+</html>

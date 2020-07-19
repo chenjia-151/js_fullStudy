@@ -1,0 +1,148 @@
+<!-- 
+    1、 text 相当于web 中的 span标签  行内元素  不会换行
+    2、 view 相当于web 中的 div标签  块级元素  会换行  
+    3、checkbox 相当于 web 中的复选框
+ -->
+<!-- <text>你好</text>
+<text>你好！</text> -->
+
+<!-- 字符串 -->
+<view>
+	{{msg}}
+</view>
+
+<!-- 数字类型 -->
+<view>
+	{{num}}
+</view>
+
+<!-- bool型 -->
+<view>
+	是否是女生:{{isGirl}}
+</view>
+
+<!-- object 类型  -->
+<view>
+	{{person.age}}
+</view>
+<view>
+	{{person.height}}
+</view>
+<view>
+	{{person.weight}}
+</view>
+<view>
+	{{person.name}}
+</view>
+
+<!-- 在标签的属性中使用 -->
+<view style="{{num}}">
+	自定义属性
+</view>
+
+<!-- 
+    使用bool类型充当属性 checked 
+        1、字符串和花括号之间一定不可以存在空格，否则导致识别失败
+            以下的写法是错误的示范：
+                <checkbox checked="      {{isChecked}}"></checkbox>
+-->
+<view>
+	<checkbox checked="{{isChecked}}"></checkbox>
+</view>
+
+<!-- 
+    运算 => 表达式
+        可以在花括号中 加入 表达式-- “语句”
+    表达式
+        指的是一些简单的运算 数字运算 字符串 拼接 逻辑运算
+        1 数字的加减
+        2 字符串的拼接
+        3 三元表达式
+    语句
+        复杂的代码段
+            if else 
+            switch 
+            do while ...
+            for ...
+ -->
+<view>
+	{{1+1}}
+</view>
+<view>
+	{{'1'+'1'}}
+</view>
+<view>
+	{{ 11%2==0 ? '偶数' : '奇数' }}
+</view>
+
+<!-- 
+    列表循环 
+        wx:for="{{数组或对象}}" 
+        wx:for-item="{{循环项的名称}}"
+        wx:for-index="{{循环项的索引}}"
+        wx:key="唯一的值" 用来提高列表渲染的性能
+            wx:key 绑定一个普通的字符串的时候，那么这个字符串名称肯定是
+                   循环数组中的 对象的 唯一属性
+            wx:key="*this" 就表示 你的数组 是一个普通的数组 *this 表示循环项
+        当出现 数组的嵌套循环的时候 以下绑定的名称 不能重名
+            wx:for-item="item" wx:for-index="index"
+        默认情况下 我们不写
+            wx:for-item="item" wx:for-index="index"
+            小程序也会把 循环项的名称 和 索引的名称 默认成 item 和 index
+            只有一层循环的话 （wx:for-item="item" wx:for-index="index"） 可以省略
+
+        对象循环
+            wx:for="{{对象}}" wx:for-item="对象的值" wx:for-index="对象的属性"
+            循环对象的时候 最好把 item和index的名称都修改一下
+                wx:for-item="value" wx:for-index="key"
+-->
+<view>
+	<view
+	 wx:for="{{list}}"
+	 wx:for-item="item"
+	 wx:for-index="index"
+	 wx:key="id"
+	>
+		索引:{{index}}
+		--
+		值：{{item.name}}
+	</view>
+</view>
+
+<view>
+	<view>
+		对象循环
+	</view>
+	<view
+	 wx:for="{{person}}"
+	 wx:for-item="value"
+	 wx:for-index="key"
+	 wx:key="age"
+	>
+		属性:{{key}}
+		--
+		值:{{value}}
+	</view>
+
+</view>
+
+<!-- 
+    block
+        占位符的标签
+        写代码的时候 可以看到这标签的存在
+        页面渲染 小程序会把它移除掉
+ -->
+<view>
+	<block
+	 wx:for="{{list}}"
+	 wx:for-item="item"
+	 wx:for-index="index"
+	 wx:key="id"
+	 class="my_list"
+	>
+		索引:{{index}}
+		--
+		值：{{item.name}}
+	</block>
+</view>
+

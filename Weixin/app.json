@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/demo02/demo02",
+    "pages/demo01/demo01",
+    "pages/main/main",
+    "pages/class/class", 
+    "pages/search/search",
+    "pages/mine/mine"
+    
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#0094aa",
+    "navigationBarTitleText": "我的应用",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true,
+    "backgroundColor":"#3F97FF"
+  },
+  "tabBar": {
+    "color":"#515151",
+    "selectedColor":"#3F97FF",
+    "borderStyle":"black",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "images/shouye.png",
+        "selectedIconPath": "images/hover-shouye.png"
+      },
+      {
+        "text":"内容",
+        "pagePath":"pages/class/class",
+        "iconPath":"images/class.png",
+        "selectedIconPath":"images/hover-class.png"
+      },
+      {
+        "text":"搜索",
+        "pagePath":"pages/search/search",
+        "iconPath":"images/search.png",
+        "selectedIconPath":"images/search_blue.png"
+      },
+      {
+        "text":"我的",
+        "pagePath":"pages/mine/mine",
+        "iconPath":"images/mine.png",
+        "selectedIconPath":"images/hover-mine.png"
+      }
+      
+    ]
+  }
+  
+    
+}

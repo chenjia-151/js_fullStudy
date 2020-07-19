@@ -3,22 +3,34 @@
     2、 view 相当于web 中的 div标签  块级元素  会换行  
     3、checkbox 相当于 web 中的复选框
  -->
-<!-- <text>你好</text>
-<text>你好！</text> -->
+<text>你好</text>
+<text>你好！</text>
+<view>
+	------------------
+</view>
 
 <!-- 字符串 -->
 <view>
 	{{msg}}
+</view>
+<view>
+	------------------
 </view>
 
 <!-- 数字类型 -->
 <view>
 	{{num}}
 </view>
+<view>
+	------------------
+</view>
 
 <!-- bool型 -->
 <view>
 	是否是女生:{{isGirl}}
+</view>
+<view>
+	------------------
 </view>
 
 <!-- object 类型  -->
@@ -34,10 +46,19 @@
 <view>
 	{{person.name}}
 </view>
+<view>
+	------------------
+</view>
 
 <!-- 在标签的属性中使用 -->
 <view style="{{num}}">
 	自定义属性
+</view>
+<view style="{{msg}}">
+	自定义属性
+</view>
+<view>
+	------------------
 </view>
 
 <!-- 
@@ -48,6 +69,9 @@
 -->
 <view>
 	<checkbox checked="{{isChecked}}"></checkbox>
+</view>
+<view>
+	------------------
 </view>
 
 <!-- 
@@ -69,15 +93,33 @@
 	{{1+1}}
 </view>
 <view>
+	-------------
+</view>
+
+<view>
 	{{'1'+'1'}}
 </view>
 <view>
+	-------------
+</view>
+
+<view>
 	{{ 11%2==0 ? '偶数' : '奇数' }}
+</view>
+<view>
+	-------------
+</view>
+
+<view>
+	{{ 2+3>6 ? 'true' : 'false'}}
+</view>
+<view>
+	-------------
 </view>
 
 <!-- 
     列表循环 
-        wx:for="{{数组或对象}}" 
+        wx:for="{{数组名或对象}}" 
         wx:for-item="{{循环项的名称}}"
         wx:for-index="{{循环项的索引}}"
         wx:key="唯一的值" 用来提高列表渲染的性能
@@ -97,6 +139,7 @@
                 wx:for-item="value" wx:for-index="key"
 -->
 <view>
+
 	<view
 	 wx:for="{{list}}"
 	 wx:for-item="item"
@@ -107,6 +150,9 @@
 		--
 		值：{{item.name}}
 	</view>
+</view>
+<view>
+	-------------
 </view>
 
 <view>
@@ -124,6 +170,9 @@
 		值:{{value}}
 	</view>
 
+</view>
+<view>
+	-------------
 </view>
 
 <!-- 
@@ -144,5 +193,74 @@
 		--
 		值：{{item.name}}
 	</block>
+</view>
+<view>
+	---------------
+</view>
+
+<!-- 
+	条件渲染
+		wx:if={{true/false}}
+			if ,else, if else
+				wx:if
+				wx:else
+				wx:elif
+		hidden
+			在标签上直接加入属性 hidden
+			hidden="{{true}}"
+		什么场景下使用哪个
+			当标签不是频繁的切换显示 优先使用 wx:if
+				直接把标签从 页面结构给移除掉
+			当标签频繁的切换显示  优先使用 hidden
+				通过添加样式的方式来切换显示
+				hidden属性 不要和 样式 display 一起使用
+					如果定义 <view hidden style="display:flex">
+					则变成 <view style="display:flex"> 
+					hidden 属性被覆盖
+ -->
+<view>
+	<view>
+		条件渲染
+	</view>
+	<view wx:if="{{true}}">
+		显示
+	</view>
+	<view wx:if="{{false}}">
+		隐藏
+	</view>
+	<view wx:if="{{false}}">
+		1
+	</view>
+	<view wx:elif="{{false}}">
+		2
+	</view>
+	<view wx:else>
+		3
+	</view>
+	<view>
+		---------------------
+	</view>
+
+	<view hidden>
+		hidden1
+	</view>
+
+	<view hidden="{{false}}">
+		hidden2
+	</view>
+	<view>
+		-------------
+	</view>
+	<view wx:if="{{false}}">
+		wx:if
+	</view>
+	<view hidden style="display:flex">
+		hidden
+	</view>
+
+</view>
+
+<view>
+	-------------
 </view>
 

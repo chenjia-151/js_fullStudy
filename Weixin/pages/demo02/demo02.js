@@ -1,6 +1,6 @@
 // pages/demo02/demo02.js
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -14,7 +14,7 @@ Page({
       weight:200,
       name:"富婆"
     },
-    isChecked:false,
+    isChecked:true,
     list:[
       {
         id:0,

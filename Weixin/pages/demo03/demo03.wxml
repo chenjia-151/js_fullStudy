@@ -1,13 +1,13 @@
 <!-- 
     创建一个输入框
         <input type="text" />
-    需要给input标签绑定 input事件
+    需要给 input标签 绑定 input事件
         绑定的关键字 bindinput
     如何获取 输入框的值
         通过事件源对象来获取
         e.detail.value
     把输入框的值 赋值到 data 中 
-        不能直接 
+        不能直接(错误的写法) 
             this.data.num=e.detail.value
             this.num=e.detail.value
         正确的写法
@@ -16,6 +16,7 @@
             })
 
  -->
+<!-- <input type="text" /> -->
 <input type="text" bindinput="handeInput" />
 <view>
 	{{num}}

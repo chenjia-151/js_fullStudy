@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/demo03/demo03",
     "pages/demo02/demo02",
     "pages/demo01/demo01",
     "pages/main/main",
-    "pages/demo03/demo03",
      "pages/class/class",
     "pages/search/search",
     "pages/mine/mine"

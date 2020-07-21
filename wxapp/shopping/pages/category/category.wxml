@@ -1,0 +1,25 @@
+<!--pages/category/category.wxml-->
+<view class="main">
+	<view class="list">
+		<view class="choose">
+			<block wx:for="{{category}}">
+				<view
+				 class="choose-name"
+				 bindtap="tabMenu"
+				 data-id="{{item.id}}"
+				>
+					<text>{{item.name}}</text>
+				</view>
+			</block>
+		</view>
+	</view>
+	<scroll-view scroll-y scroll-into-view="{{goId}}">
+		<view class="goods-list">
+			<block wx:for="{{detail}}">
+				<view class="goods-name" style="height:100vh">{{item.cate}}
+				</view>
+			</block>
+		</view>
+	</scroll-view>
+</view>
+

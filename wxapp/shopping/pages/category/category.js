@@ -156,8 +156,12 @@ Page({
     goId: 'dianxin'
   },
 
-  tabname(e) {
+  tabMenu:function(e) {
     console.log(e)
+    this.setData({
+      goId:e.currentTarget.id
+    })
+    console.log(this.data.goId)
   },
 
   /**

@@ -14,10 +14,17 @@
             this.setData({
                 num:e.detail.value
             })
+    按钮 设置好之后需要加入一个点击事件
+        bindtap
+        无法在小程序当中的 事件中 直接传参
+        通过自定义属性的方式来传递参数
+        事件源中获取
 
  -->
 <!-- <input type="text" /> -->
 <input type="text" bindinput="handeInput" />
+<button bindtap="handletap" data-operation="{{1}}">+</button>
+<button bindtap="handletap" data-operation="{{-1}}">-</button>
 <view>
 	{{num}}
 </view>

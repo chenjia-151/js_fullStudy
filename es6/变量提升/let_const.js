@@ -32,8 +32,26 @@
 
 
 // 暂时性死区
-var tmp = 123;
-if (true) {
-    tmp = 'abc'
-    let tmp
-}
+// var tmp = 123;
+// if (true) {
+//     tmp = 'abc'
+//     let tmp
+// }
+
+
+
+// ------------------------
+// const 定义一个常量 是不允许修改的
+// const num = 123
+// num = 111
+// console.log(num)
+
+
+// if(true){
+//     console.log(age)
+//     const age = 12
+// }
+
+const message = 'hello world'
+const message = 'hello'
+console.log(message)

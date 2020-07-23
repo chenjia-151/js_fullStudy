@@ -1,0 +1,30 @@
+<!-- 
+    button 标签
+    1、外观的属性
+        1、size 控制按钮的大小
+            1、default 默认值
+            2、mini 小尺寸
+        2、type 控制按钮的颜色
+            1、default 灰色
+            2、primary 绿色
+            3、warn 红色
+        3、plain 按钮是否镂空，背景色透明
+        4、loading 是否在按钮名称前面加一个等待图标
+ -->
+<button>默认按钮</button>
+<button size="mini"> size 小尺寸按钮</button>
+<button type="primary">默认按钮</button>
+<button type="warn">默认按钮</button>
+<button type="warn" plain="{{true}}">默认按钮</button>
+<button
+ type="warn"
+ plain="{{true}}"
+ loading="{{true}}"
+>默认按钮
+</button>
+
+<!-- 
+    getUserInfo 获取当前用户的个人信息
+ -->
+
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">getUserInfo</button>

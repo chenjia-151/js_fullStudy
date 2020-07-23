@@ -23,9 +23,7 @@
 					<image src="{{item.banner}}" />
 				</view>
 				<view class="scroll-title">
-					<text>
-						{{item.cate}}
-					</text>
+					<text>{{item.cate}}</text>
 				</view>
 				<block
 				 wx:for="{{item.detail}}"
@@ -37,9 +35,7 @@
 							<image src="{{det.thumb}}" />
 						</view>
 						<view class="content-name">
-							<text>
-								{{det.name}}
-							</text>
+							<text>{{det.name}}</text>
 						</view>
 					</view>
 				</block>

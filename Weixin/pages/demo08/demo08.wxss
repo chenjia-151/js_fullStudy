@@ -1,0 +1,7 @@
+/* pages/demo08/demo08.wxss */
+.swiper-item{
+  width: 375rpx;
+}
+image{
+  width: 100%;
+}

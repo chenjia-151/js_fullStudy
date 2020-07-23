@@ -1,0 +1,38 @@
+module.exports={
+    'GET /articles'(req,res){
+        return res.json({
+            code:0,
+            articles:[{
+                date:'7-22',
+                items:[{
+                    title:'aaaa',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:1
+                },{
+                    title:'bbbb',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:2
+                },{
+                    title:'cccc',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:3
+                }]
+            },{
+                date:'7-21',
+                items:[{
+                    title:'dddd',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:4
+                },{
+                    title:'eeee',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:5
+                },{
+                    title:'ffff',
+                    pic:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg',
+                    id:6
+                }]
+            }]
+        })
+    }
+}

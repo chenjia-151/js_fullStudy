@@ -1,0 +1,24 @@
+<!-- 
+    轮播图外层容器 swiper
+    每一个轮播项 swiper-item
+ -->
+<swiper
+ indicator-dots="true"
+ indicator-color="#fff"
+ indicator-active-color="red"
+ autoplay="true"
+ circular="true"
+ interval="1000"
+>
+	<swiper-item>
+		<image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg" />
+	</swiper-item>
+	<swiper-item>
+		<image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg" />
+	</swiper-item>
+	<swiper-item>
+		<image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3175463323,1252831295&fm=26&gp=0.jpg" />
+	</swiper-item>
+
+</swiper>
+

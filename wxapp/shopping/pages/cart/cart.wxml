@@ -6,11 +6,25 @@
 			 wx:for="{{carts}}"
 			 wx:key="index"
 			>
+				<!-- icon 定义小图标 -->
 				<icon
+				 wx:if="{{item.selected}}"
 				 class="cart-pro-select"
 				 type="success"
 				 size="23"
 				 color="red"
+				 bindtap="selectlist"
+				 data-index="{{index}}"
+				>
+				</icon>
+				<icon
+				 wx:else
+				 class="cart-pro-select"
+				 type="success"
+				 size="23"
+				 color="#d9d9d9"
+				 bindtap="selectlist"
+				 data-index="{{index}}"
 				>
 				</icon>
 				<navigator class="cart-pro-goods" url="">
@@ -25,15 +39,26 @@
 					<text class="cart-count-num">{{item.num}}</text>
 					<text class="cart-count-add">+</text>
 				</view>
-				<text class="cart-del">x</text>
+				<text class="cart-del" bindtap="deletelist">x</text>
 			</view>
 		</view>
 		<view class="cart-footer">
 			<icon
+			 wx:if="{{selectAllStatus}}"
 			 class="total-select"
 			 type="success"
 			 size="23"
 			 color="red"
+			 bindtap="selectAll"
+			>
+			</icon>
+			<icon
+			 wx:else
+			 class="total-select"
+			 type="success"
+			 size="23"
+			 color="white"
+			 bindtap="selectAll"
 			>
 			</icon>
 			<text>全选</text>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            font-family: sans-serif;
+            background: #13091b;
+            height: 100%;
+        }
+        body{
+            background:url(https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2746890508,1411167354&fm=26&gp=0.jpg) no-repeat;
+            background-size: cover;
+        }
+        audio{
+            visibility: hidden;
+        }
+        #play-btn{
+            /* 绝对定位 position */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: aqua;
+            width: 150px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            /* 将容器设置为圆角 borde-radius */
+            border-radius: 4px;
+            /* 将文本下划线取消 */
+            text-decoration: none;
+            font-size: 18px;
+            /* 调整字间距 */
+            letter-spacing: 1px;
+            color: #13091b;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <audio id="audio" controls src="https://music.163.com/#/song?id=1344897943">
+        </audio>
+        <a href="javascript:;" id="play-btn">PLAY</a>
+    </div>
+    <script>
+        // 将要发生的事件取出 getElementById
+        var btn = document.getElementById('play-btn')
+        var audio = document.getElementById('audio')
+        // 监听事件的发生 addEventListener
+        btn.onclick = function(){
+            audio.play()
+            btn.style.display = 'none'
+            // 出现音浪
+            onLoadAudio()
+        }
+
+        function onLoadAudio(){
+            var context = new(window.AudioContext || window.webkitAudioContext) //拿到audio的参数
+            // console.log(context)
+            
+        }
+        
+    </script>
+</body>
+</html>

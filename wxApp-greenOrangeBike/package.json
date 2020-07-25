@@ -1,0 +1,24 @@
+{
+  "name": "wxapp-greenorangebike",
+  "version": "1.0.0",
+  "description": "An app for using shared bicycles",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.4.0",
+    "miniprogram-sm-crypto": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaojianggege/wxApp-greenOrangeBike.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaojianggege/wxApp-greenOrangeBike/issues"
+  },
+  "homepage": "https://github.com/xiaojianggege/wxApp-greenOrangeBike#readme"
+}

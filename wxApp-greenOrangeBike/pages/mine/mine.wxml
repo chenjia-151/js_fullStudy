@@ -1,0 +1,74 @@
+<view class="mine">
+	<scroll-view scroll-y="{{true}}" style="width:100%">
+		<view class="user-info">
+			<image src="./images/pic.png"></image>
+		</view>
+		<view class="ride">
+			<text>骑行</text>
+		</view>
+		<view class="RideList">
+			<van-cell 
+			title="我的钱包" 
+			icon="pending-payment" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/mywallet/mywallet" 
+			value="查看骑行卡，优惠券" 
+			/>
+			<van-cell 
+			title="行程" 
+			icon="coupon-o" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/HistoricalJourney/HistoricalJourney" 
+			value="本月骑行次数0次" 
+			/>
+			<van-cell 
+			title="行为分" 
+			icon="other-pay" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/Grade/Grade" 
+			value="当前分数0分" 
+			/>
+			<van-cell 
+			title="计价规则" 
+			icon="notes-o" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/PriceRule/PriceRule" 
+			value="计价规则" 
+			/>
+			<van-cell 
+			title="客服中心" 
+			icon="service-o" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/CustomerService/CustomerService" 
+			/>
+		</view>
+		<view class="health">
+			<text>健康</text>
+		</view>
+		<view class="HealthList">
+			<van-cell  title-style="color:red" title="骑行里程" value="本月共骑行0千米" icon="location-o" />
+			<van-cell title="碳排放" value="本月减少0千克碳排放" icon="award-o" />
+			<van-cell title="骑行时长" value="本月骑行时长0小时" icon="underway-o" />
+			<van-cell title="卡路里消耗" value="本月共消耗0卡路里" icon="fire-o" />
+		</view>
+		<view class="about">
+			<van-cell 
+			title="关于青桔" 
+			is-link 
+			link-type="navigateTo" 
+			url="/pages/AboutThis/AboutThis" 
+			icon="info-o" 
+			/>
+		</view>
+	<van-dialog id="van-dialog" />
+		<view class="GetOut" bindtap="logout">
+			<text class="leave">退出登录</text>
+		</view>
+	</scroll-view>
+</view>
+

@@ -1,0 +1,17 @@
+/* component/ratingStar/ratingStar.wxss */
+.stars{
+    width: 200rpx;
+    height: 50rpx;
+}
+.onStar{
+    width: 20rpx;
+    height: 20rpx;
+}
+.halfStar{
+    width: 20rpx;
+    height: 20rpx;
+}
+.offStar{
+    width: 20rpx;
+    height: 20rpx;
+}

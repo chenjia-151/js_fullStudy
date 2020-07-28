@@ -1,0 +1,40 @@
+<nav-bar
+ title="首页"
+ statusBarColor="#42BD55"
+ navBarColor="#42BD55"
+ titleColor="#fff"
+>
+</nav-bar>
+<view>
+	<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+	<view class="row">
+		<view class="title-wrapper">
+			<view class="title">影院热映</view>
+			<view class="title-right">
+				<view class="more">查看更多</view>
+				<view class="arrow"></view>
+			</view>
+		</view>
+		<scroll-view scroll-x="true" class="scroll-view__movie">
+			<movieitem class="item"></movieitem>
+		</scroll-view>
+	</view>
+</view>
+
+<!-- display: flex;
+    justify-content: space-between;
+    弹性布局，中间留白 
+    align-items: center;
+    让子容器在y轴上对齐-->
+
+<!-- font-weight: bold;
+    字体加粗 -->
+
+<!-- transform: rotate(-45deg);
+               旋转多少度 -->
+
+<!-- display: flex;
+    flex-direction: column;
+      弹性布局，向上下分布
+     -->
+

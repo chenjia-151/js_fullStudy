@@ -1,0 +1,13 @@
+<!--component/nav-bar/nav-bar.wxml-->
+<view>
+	<!-- container 脱离文档流，导致父容器没有高度，弥补 nav-bar 的高度 -->
+	<view style="height:{{topHeight}}px"></view>
+	<view class="container">
+		<!-- 手机头部显示电量栏  空容器view -->
+		<view style="{{statusBarStyle}}"></view>
+		<view class="nav-bar" style="{{navBarStyle}}">
+			{{title}}
+		</view>
+	</view>
+</view>
+

@@ -16,7 +16,7 @@
 			</view>
 		</view>
 		<scroll-view scroll-x="true" class="scroll-view__movie">
-			<movieitem class="item"></movieitem>
+			<movieitem class="item" movie="{{movie}}"></movieitem>
 		</scroll-view>
 	</view>
 </view>

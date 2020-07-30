@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/demo14/demo14",
     "pages/demo13/demo13",
     "pages/demo12/demo12",
     "pages/demo11/demo11",
@@ -17,7 +18,8 @@
     "pages/main/main",
     "pages/class/class",
     "pages/search/search",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "components/Tabs/Tabs"
   ],
   "window": {
     "backgroundTextStyle": "dark",

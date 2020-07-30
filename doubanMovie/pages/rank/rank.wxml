@@ -1,3 +1,12 @@
 <!--pages/rank/rank.wxml-->
 <nav-bar title="榜单"></nav-bar>
+<view>
+	<view class="movieRank">
+		<image class="img" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=251289958,1860898046&fm=26&gp=0.jpg"></image>
+	</view>
+	<view class="koubei">
+		<image class="img" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=251289958,1860898046&fm=26&gp=0.jpg"></image>
+	</view>
+
+</view>
 

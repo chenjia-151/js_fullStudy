@@ -1,12 +1,12 @@
 <!--component/movieitem/movieitem.wxml-->
 <view class="item">
 	<view class="info">
-		<image class="img" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1527382299,1761240283&fm=26&gp=0.jpg"></image>
-		<view class="name">侠盗飞车手</view>
+		<image class="img" src="{{movie.images.large}}"></image>
+		<view class="name">{{movie.title}}</view>
 		<view class="score-wrapper">
 			<!-- 展示星星 -->
-			<ratingStar score="4.5"></ratingStar>
-			<view class="score">4.5分</view>
+			<ratingStar score="{{movie.numberStars}}"></ratingStar>
+			<view class="score">{{movie.rating.average}}</view>
 		</view>
 	</view>
 </view>

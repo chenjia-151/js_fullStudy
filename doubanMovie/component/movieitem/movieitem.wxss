@@ -20,11 +20,17 @@
     margin-bottom: 20rpx;
     border-radius: 10rpx;
 }
-.score{
+/* .score{
     float: right;
     position: absolute;
     top: 368rpx;
     left: 160rpx;
     color: #FFAC2D;
+} */
+.score-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
 }
 

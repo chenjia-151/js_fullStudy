@@ -1,5 +1,5 @@
 /* component/ratingStar/ratingStar.wxss */
-.stars{
+/* .stars{
     width: 200rpx;
     height: 50rpx;
 }
@@ -14,4 +14,7 @@
 .offStar{
     width: 20rpx;
     height: 20rpx;
+} */
+.star-wrapper{
+    display: flex;
 }

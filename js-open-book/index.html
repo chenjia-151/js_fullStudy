@@ -157,7 +157,7 @@
             let prefixes = ['webkit', 'moz', 'ms', 'o'],
                 // 定义变量 拿到动结构
                 book = document.querySelectorAll('.book')[0],
-                page = document.querySelectorAll('.font-cover')[0],
+                page = document.querySelectorAll('.front-cover')[0],
                 dino = document.querySelectorAll('.dino')[0],
                 shadow = document.querySelectorAll('.shadow')[0],
                 // 拿到容器的内边距宽度
@@ -192,6 +192,7 @@
                     page.style[prefixes[i] + "Transform"] = `rotateY(${angle}deg)`
                     page.style[prefixes[i] + "Transform"] = `ratateX(${angle / 2}deg)`
                     shadow.style[prefixes[i] + "Transform"] = `translateZ(1px) skewX(${angle / 8}deg)`
+                    dino.style[prefixes[i] + "Transfrom"] = `translateX(1px) skewX(${angle / 8}deg)`
                 }
             }
         })(window, document)

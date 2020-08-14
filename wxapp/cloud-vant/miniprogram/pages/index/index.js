@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    newGroupModal:true,
+    groupName:''
+  },
 
+  showNewGroupModal(){
+
+  },
+
+  onGroupNameChange(event){
+    console.log(event);
+    this.setData({
+      groupName: event.detail
+    })
   },
 
   /**

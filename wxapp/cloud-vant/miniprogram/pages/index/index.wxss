@@ -30,3 +30,7 @@
 .new-item:hover{
     box-shadow: none;
 }
+/* .notify-selector{
+    z-index: 999;
+
+} */

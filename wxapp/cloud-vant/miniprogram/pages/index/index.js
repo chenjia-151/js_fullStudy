@@ -1,4 +1,5 @@
 // miniprogram/pages/index/index.js
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 Page({
 
   /**
@@ -11,6 +12,21 @@ Page({
 
   showNewGroupModal(){
 
+  },
+  closeDialog(){},
+
+  createGroup(){
+    if(this.data.groupName === ''){
+      // 出现notify
+      Notify({
+        message: '起个名字',
+        duration: 2000,
+        selector: '#notify-selector',
+        background: '#dc3545'
+      });
+      this.selectComponent("new-group-modal").stopLoading()
+      return 
+    }
   },
 
   onGroupNameChange(event){

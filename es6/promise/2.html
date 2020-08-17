@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 回调函数，只有当前一个函数体中的代码执行完成之后，才会执行后一个函数体中的代码，在前一个函数体中调用后一个函数
+        function getSong(callBack) {
+            $.ajax({
+                url: 'http://neteasecloudmusicapi.zhaoboy.com/top/list?idx=1',
+                dataType: 'JSON',
+                success: function(res){
+                    console.log(res.playlist.tracks[0].name);
+                    callBack()
+                }
+            })
+        }
+        getSong(singSong)
+
+        function singSong() {
+            console.log('sing...');
+        }
+    </script>
+</body>
+</html>

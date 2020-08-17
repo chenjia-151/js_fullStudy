@@ -10,12 +10,19 @@ Page({
     groupName:''
   },
 
-  showNewGroupModal(){
-
+  showNewGroupModal() {
+    this.setData({
+      newGroupModal: true
+    })
   },
-  closeDialog(){},
+  closeDialog() {
+    this.setData({
+      newGroupModal: false
+    })
+  },
 
   createGroup(){
+    const self = this
     if(this.data.groupName === ''){
       // 出现notify
       Notify({
@@ -24,9 +31,38 @@ Page({
         selector: '#notify-selector',
         background: '#dc3545'
       });
-      this.selectComponent("new-group-modal").stopLoading()
+      this.selectComponent("#new-group-modal").stopLoading()
       return 
     }
+    // 调用云函数  把用户输入的群组名存储到数据库中
+    wx.cloud.callFunction({
+      name: 'createGroup',
+      data:{
+        groupName: self.data.groupName
+      },
+      success(res) {
+        console.log(res);
+        self.setData({
+          groupName: '',
+          newGroupModal: false
+        })
+        // 出现notify
+        Notify({
+          message: '新建成功',
+          duration: 2000,
+          selector: '#notify-selector',
+          background: '#28a745'
+        });
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/group/group',
+          })
+        }, 2000);
+      },
+      fail(error) {
+        console.log(error);
+      }
+    })
   },
 
   onGroupNameChange(event){

@@ -19,6 +19,7 @@
  showCancelButton
  bind:cancel="closeDialog"
  bind:confirm="createGroup"
+ z-index="1"
  asyncClose
  use-slot
 >

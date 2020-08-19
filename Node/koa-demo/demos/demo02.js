@@ -6,6 +6,7 @@ const app = new Koa()  // 定义一个新的 koa实例
 const main = ctx =>{
     ctx.response.body = "Hello World"
 }
+
 app.use(main)
 
 //  调用监听方法  第一个参数是电脑的端口3000，第二个参数就是回调函数

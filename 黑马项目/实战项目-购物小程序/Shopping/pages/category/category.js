@@ -6,7 +6,9 @@ Page({
     // 右侧的商品数据
     rightContent: [],
     // 被点击的左侧的菜单
-    currentIndex: 0
+    currentIndex: 0,
+    // 右侧内容的滚动条距离顶部的距离
+    scrollTop: 0
   },
 
   // 接口的返回数据
@@ -33,7 +35,13 @@ Page({
         this.getCates()
       } else {
         // 可以使用旧的数据
-        console.log("可以使用旧的数据");
+        this.Cates = Cates.data
+        let leftMenuList = this.Cates.map(v => v.cat_name)
+        let rightContent = this.Cates[0].children
+        this.setData({
+          leftMenuList,
+          rightContent
+        })
       }
     }
 
@@ -41,27 +49,42 @@ Page({
   },
 
   // 获取分类数据
-  getCates() {
-    request({
-      url: "https://api-hmugo-web.itheima.net/api/public/v1/categories"
+  async getCates() {
+    // request({
+    //   url: "/categories"
+    // })
+    //   .then(res => {
+    //     // console.log(res);
+    //     this.Cates = res.data.message;
+
+    //     // 把接口的数据存入到本地存储中
+    //     wx.setStorageSync("cates", { time: Date.now(), data: this.Cates })
+
+
+    //     // 构造左侧的大菜单数据
+    //     let leftMenuList = this.Cates.map(v => v.cat_name)
+    //     // 构造右侧的商品数据
+    //     let rightContent = this.Cates[0].children
+    //     this.setData({
+    //       leftMenuList,
+    //       rightContent
+    //     })
+    //   })
+
+    // 1. 使用es7的async await 来发送请求
+    const res = await request({ url: "/categories" })
+    this.Cates = res.data.message;
+    // this.Cates = res;
+    // 把接口的数据存入到本地存储中
+    wx.setStorageSync("cates", { time: Date.now(), data: this.Cates })
+    // 构造左侧的大菜单数据
+    let leftMenuList = this.Cates.map(v => v.cat_name)
+    // 构造右侧的商品数据
+    let rightContent = this.Cates[0].children
+    this.setData({
+      leftMenuList,
+      rightContent
     })
-      .then(res => {
-        // console.log(res);
-        this.Cates = res.data.message;
-
-        // 把接口的数据存入到本地存储中
-        wx.setStorageSync("cates", { time: Date.now(), data: this.Cates })
-
-
-        // 构造左侧的大菜单数据
-        let leftMenuList = this.Cates.map(v => v.cat_name)
-        // 构造右侧的商品数据
-        let rightContent = this.Cates[0].children
-        this.setData({
-          leftMenuList,
-          rightContent
-        })
-      })
   },
 
   // 左侧菜单的点击事件
@@ -77,7 +100,10 @@ Page({
     let rightContent = this.Cates[index].children;
     this.setData({
       currentIndex: index,
-      rightContent
+      rightContent,
+
+      // 重新设置  右侧内容的scroll-view标签的距离顶部的距离
+      scrollTop: 0
     })
   }
 })

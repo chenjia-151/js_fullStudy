@@ -15,7 +15,11 @@
 
 		</scroll-view>
 		<!-- 右侧商品内容 -->
-		<scroll-view scroll-y="{{true}}" class="right_content">
+		<scroll-view
+		 scroll-top="{{scrollTop}}"
+		 scroll-y="{{true}}"
+		 class="right_content"
+		>
 			<view
 			 class="goods_group"
 			 wx:for="{{rightContent}}"

@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        html{
+
+        html {
             height: 100%;
             background: #fff;
             color: #000;
             font-size: 62.5%;
         }
-        body{
+
+        body {
             min-height: 100%;
-            /* 网格容器 */
-            display: grid;    
-            /* 将容器设置成了网格容器之后，就可以使用这个让容器居中 */
+            /* 网格布局 */
+            display: grid;
+            /* 将容器设置成了网格布局之后，就可以使用这个让容器居中 */
             place-items: center;
             font-size: 1.4rem;
         }
-        button{
+
+        button {
             border: none;
             color: #fff;
             background: #42b983;
@@ -38,7 +42,7 @@
         }
 
         /* 在页面的上面放一张半透明的图片 */
-        .modal-overlay{
+        .modal-overlay {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -46,10 +50,15 @@
             right: 0;
             z-index: 998;
             background: #2c3e50;
+
+            /* 透明度 */
             opacity: 0.6;
+
+            /* 当鼠标放在按钮上时，会出现一只小手的形状 */
             cursor: pointer;
         }
-        .modal{
+
+        .modal {
             position: absolute;
             margin: auto;
             top: 0;
@@ -66,30 +75,36 @@
             z-index: 999;
 
         }
-        .modal h1{
-            margin: 0 0 1rem;
+
+        .modal h1 {
+            margin-bottom: 1rem;
         }
 
-        /* ----------- */
+        /* -----------  为蒙层写动画 */
         .fade-enter,
-        .fade-leave-to{
+        .fade-leave-to {
             opacity: 0;
         }
+
         .fade-enter-active,
-        .fade-leave-active{
+        .fade-leave-active {
+            /* 动画过渡的时间  linear--匀速 */
             transition: opacity 0.4s linear;
         }
+
         .pop-enter,
-        .pop-leave-to{
+        .pop-leave-to {
             opacity: 0;
             transform: scale(0.3) translateY(-50%);
         }
+
         .pop-enter-active,
-        .pop-leave-active{
+        .pop-leave-active {
             transition: transform .4s cubic-bezier(0.5, 0, 0.5, 1), opacity .4s linear;
         }
     </style>
 </head>
+
 <body>
     <div id="app">
 
@@ -100,11 +115,10 @@
         </transition>
 
         <transition name="pop" appear>
-
             <div class="modal" v-if="showModal">
                 <h1>Vue Transition</h1>
                 <p>
-                    Hello World Hello World
+                    Hello World Hello World!
                 </p>
                 <button class="button" @click="isShowModal">Hide Modal</button>
             </div>
@@ -114,13 +128,13 @@
     <script>
         new Vue({
             el: '#app',
-            data(){
+            data() {
                 return {
                     showModal: true
                 }
             },
-            methods:{
-                isShowModal(){
+            methods: {
+                isShowModal() {
                     this.showModal = !this.showModal
                 }
             }
@@ -128,4 +142,5 @@
     </script>
 
 </body>
+
 </html>

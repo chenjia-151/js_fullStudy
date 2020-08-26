@@ -6,33 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
     <title>Document</title>
-    <style>
-        #app {
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
+    <h1>component</h1>
     <div id="app">
-        <div class="demo" v-Zhang="color">{{num}}</div>
+        <wn></wn>
     </div>
-    <!-- vue.directive 自定义指令-->
+
 
     <script>
-        Vue.directive('Zhang', function (el, binding, vnode) {
-            el.style = `color: ${binding.value}`
+        Vue.component('wn', {
+            template: `<div style="font-size: 20px">这是一个组件</div>`
         })
-
         let app = new Vue({
             el: '#app',
-            data: {
-                num: 0,
-                color: 'green'
-            }
+            data: {}
         })
-    </script>
 
+    </script>
 </body>
 
 </html>

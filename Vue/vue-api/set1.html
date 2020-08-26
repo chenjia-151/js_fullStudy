@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
     <title>Document</title>
+
     <style>
         #app {
             text-align: center;
@@ -15,24 +16,31 @@
 
 <body>
     <div id="app">
-        <div class="demo" v-Zhang="color">{{num}}</div>
+        <p>{{count}}</p>
+        <button @click="add">+</button>
     </div>
-    <!-- vue.directive 自定义指令-->
 
     <script>
-        Vue.directive('Zhang', function (el, binding, vnode) {
-            el.style = `color: ${binding.value}`
-        })
+        var outData = {
+            count: 1,
+            name: 'Wn'
+        }
+
+        function adds() {
+            // this.count++
+            Vue.set(outData, 'count', 3)
+        }
 
         let app = new Vue({
             el: '#app',
-            data: {
-                num: 0,
-                color: 'green'
+            data: outData,
+            methods: {
+                add() {
+                    adds()
+                }
             }
         })
     </script>
-
 </body>
 
 </html>

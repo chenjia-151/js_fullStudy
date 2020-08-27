@@ -1,8 +1,7 @@
 <template>
   <div class="about">
-    <p>{{animal}}</p>
-    <User :userName="name" @animalChange="updateAnimal"></User>
-    <Animal @babyName="baby"></Animal>
+    <User :userName="name" @babyChange="getBabyName"></User>
+    <Animal :babyName="babyName"></Animal>
   </div>
 </template>
 
@@ -14,19 +13,19 @@ export default {
   data() {
     return {
       name: "王五",
-      babyName: ""
+      babyName: undefined,
     };
   },
   components: {
     User,
-    Animal
+    Animal,
   },
-  methods:{
-    updateAnimal(baby){
+  methods: {
+    getBabyName(name) {
       // console.log('baby');
-      this.baby = baby
-    }
-  }
+      this.babyName = name;
+    },
+  },
 };
 </script>
 

@@ -6,6 +6,12 @@
 
 <script>
 export default {
+  props: {
+    babyName: {
+      type: String,
+      default: "小白",
+    },
+  },
   data() {
     return {
       baby: "小白",

@@ -12,8 +12,7 @@ export default {
   data() {
     return {
       name: "张三",
-      title: "子组件里的title",
-      baby: "小黑"
+      title: "子组件里的title"
     };
   },
   methods:{
@@ -22,7 +21,7 @@ export default {
         this.$emit('titleChange', this.title)   //  emit发散器  第一个参数是往外发散的方法名，第二个参数是一个值
       },
       changeBaby(){
-        this.$emit('animalChange',this.baby)
+        this.$emit('babyChange','小黑')
       }
   }
 };

@@ -19,7 +19,9 @@
     <div class="feature">
       <div class="group" v-if="mapFeatureMapData.length > 0">
         明日：
-        <span class="tm">白天 : {{mapFeatureMapData[1].dayTemp}} {{mapFeatureMapData[1].dayWeather}} {{mapFeatureMapData[1].dayWindDir}} {{mapFeatureMapData[1].dayWindPower}}</span>
+        <span
+          class="tm"
+        >白天 : {{mapFeatureMapData[1].dayTemp}} {{mapFeatureMapData[1].dayWeather}} {{mapFeatureMapData[1].dayWindDir}} {{mapFeatureMapData[1].dayWindPower}}</span>
         <span class="tm">夜间 : 大雨</span>
       </div>
       <div class="group">
@@ -39,7 +41,7 @@ export default {
     return {
       localTime: "",
       mapData: {},
-      mapFeatureMapData: []
+      mapFeatureMapData: [],
     };
   },
   created() {
@@ -87,10 +89,10 @@ export default {
           _self.mapData = data;
         });
         // 执行未来天气信息查询
-        weather.getForecast(cityName,function(err,data){
-          // console.log(data);
-          _self.mapFeatureMapData = data.forecasts
-        })
+        weather.getForecast(cityName, function (err, data) {
+          console.log(data);
+          _self.mapFeatureMapData = data.forecasts;
+        });
       });
     },
   },

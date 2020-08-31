@@ -1,5 +1,5 @@
 import { request } from "../../request/index.js"
-// import regeneratorRuntime from '../../lib/runtime/runtime'
+import regeneratorRuntime from '../../lib/runtime/runtime'
 Page({
   /**
    * 页面的初始数据
@@ -39,15 +39,15 @@ Page({
   onLoad: function (options) {
     // console.log(options);
     this.QueryParams.cid = options.cid
-    this.getGoodsLIst()
+    this.getGoodsList()
   },
 
   // 获取商品列表数据
-  async getGoodsLIst() {
+  async getGoodsList() {
     const res = await request({ url: "/goods/search", data: this.QueryParams })
-    // console.log(res);
+    console.log(res);
     this.setData({
-      goodsList: res.goods
+      goodsList : res.goods
     })
   },
 

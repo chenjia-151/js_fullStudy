@@ -7,30 +7,30 @@ import User2 from '@/views/User2.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
-    {
-      path: '/',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home,
-      children:[
-        {
-          path: 'user',
-          name: 'User',
-          component: User
-        },
-        {
-          path: 'user2',
-          name: 'User2',
-          component: User2
-        }
-      ]
-    }
-  ]
+const routes = [
+  {
+    path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    children: [
+      {
+        path: 'user',
+        name: 'User',
+        component: User
+      },
+      {
+        path: 'user2',
+        name: 'User2',
+        component: User2
+      }
+    ]
+  }
+]
 
 const router = new VueRouter({
   mode: 'history',

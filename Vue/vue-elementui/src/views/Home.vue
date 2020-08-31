@@ -6,7 +6,7 @@
         <div class="user-control">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
-              admin
+              {{this.$route.params.userName}}
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">

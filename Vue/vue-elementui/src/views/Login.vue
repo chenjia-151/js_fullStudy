@@ -2,10 +2,6 @@
   <div class="login">
     <h2>旅梦后台管理系统</h2>
     <div class="login-wrapper">
-      <!-- <input type="text">
-            <input type="text">
-      <button>登录</button>-->
-
       <!-- v-model   双向数据绑定 -->
       <p class="input">
         <el-input v-model="user" placeholder="请输入账号"></el-input>
@@ -33,16 +29,25 @@ export default {
       // console.log(123);
       if (!this.user || !this.password) {
         this.$message.error("账号或密码不能为空");
-      } else if(this.user === "admin" && this.password === "123456") {
+      }
+      // else if(this.user === "admin" && this.password === "123456") {
+      //   this.$message({
+      //     message: "登录成功",
+      //     type: "success"
+      //   });
+      //   // 路由跳转
+      //   this.$router.push({path: '/home'})
+      // }
+      else {
         this.$message({
           message: "登录成功",
-          type: "success"
+          type: "success",
         });
-        // 路由跳转
         this.$router.push({path: '/home'})
-      } else{
-          this.$message.error("账号或密码错误");
       }
+
+
+      
     },
   },
 };

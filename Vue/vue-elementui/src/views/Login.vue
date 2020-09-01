@@ -43,6 +43,9 @@ export default {
           message: "登录成功",
           type: "success",
         });
+
+        
+        localStorage.setItem('name', this.user)   // 浏览器的本地存储
         this.$router.push({
           path: "/home",
           name:"Home",

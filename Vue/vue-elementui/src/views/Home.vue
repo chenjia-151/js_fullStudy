@@ -6,7 +6,7 @@
         <div class="user-control">
           <el-dropdown @command="handleCommand">
             <span class="el-dropdown-link">
-              {{this.$route.params.userName}}
+              {{name}}
               <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -55,11 +55,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      name
+    };
+  },
+  created(){
+    this.name = localStorage.getItem('name')
   },
   methods: {
     handleCommand(command) {
-      console.log(command);
+      // console.log(command);
       if (command == "loginOut") {
         this.$router.push({ path: "/" });
       }

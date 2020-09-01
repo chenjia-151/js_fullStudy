@@ -1,5 +1,6 @@
 import { request } from "../../request/index.js"
-import regeneratorRuntime from '../../lib/runtime/runtime'
+// import regeneratorRuntime from '../../lib/runtime/runtime'
+
 Page({
   /**
    * 页面的初始数据
@@ -33,6 +34,9 @@ Page({
     pagesize: 10
   },
 
+  // 总页数
+  totalPages: 1,
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -46,9 +50,18 @@ Page({
   async getGoodsList() {
     const res = await request({ url: "/goods/search", data: this.QueryParams })
     console.log(res);
+    // 获取总条数
+    const total = res.data.message.total
+    // 计算总页数
+    this.totalPages = Math.ceil(total / this.QueryParams.pagesize)
+    console.log(this.totalPages);
     this.setData({
-      goodsList : res.goods
+      // 拼接数组
+      goodsList: [...this.data.goodsList, ...res.data.message.goods]
     })
+
+    // 关闭下拉刷新的窗口 
+    wx.stopPullDownRefresh()
   },
 
   // 标题的点击事件 从子组件传递过来的
@@ -63,5 +76,35 @@ Page({
     this.setData({
       tabs
     })
+  },
+
+  // 页面上拉 滚动条触底事件
+  onReachBottom() {
+    // console.log('页面触底');
+    if (this.QueryParams.pagenum >= this.totalPages) {
+      // console.log("没有下一页数据");
+      // 弹出显示框 提示
+      wx.showToast({ title: '没有下一页数据了' });
+
+    } else {
+      // console.log("有下一页数据");
+      this.QueryParams.pagenum++
+      this.getGoodsList()
+    }
+  },
+
+  // 下拉刷新事件
+  onPullDownRefresh() {
+    // console.log("刷新");
+    // 重置数组
+    this.setData({
+      goodsList: []
+    })
+
+    // 重置页码
+    this.QueryParams.pagenum = 1
+
+    // 发送请求
+    this.getGoodsList()
   }
 })

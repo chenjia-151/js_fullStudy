@@ -10,7 +10,7 @@
 			>
 				<!-- 左侧 图片容器 -->
 				<view class="goods_img_wrap">
-					<image src="{{item.goods_small_logo}}" mode="widthFix" />
+					<image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598897499883&di=a80a756d58455cf2a228374bcba26ada&imgtype=0&src=http%3A%2F%2Fi1.mifile.cn%2Ff%2Fi%2F18%2Fmitv4%2Findex_banner_img.jpg'}}" />
 				</view>
 				<!-- 右侧 商品容器 -->
 				<view class="goods_info_wrap">

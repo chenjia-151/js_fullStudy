@@ -5,25 +5,19 @@
         <img
           width="64"
           height="64"
-          src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1354268575,1268995723&fm=26&gp=0.jpg"
+          :src="seller.avatar"
           alt
         />
       </div>
       <div class="content">
         <div class="title">
           <span class="brand"></span>
-          <span class="name">粥品香坊</span>
+          <span class="name">{{seller.name}}</span>
         </div>
-        <div class="description">蜂鸟专送/38分钟送达</div>
-        <div class="support">
-          <img
-            class="support-ico"
-            width="32"
-            height="32"
-            src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3086553816,1581566685&fm=26&gp=0.jpg"
-            alt
-          />
-          <span class="text">在线支付满28减29</span>
+        <div class="description">{{seller.description}}/{{seller.deliveryTime}}分钟送达</div>
+        <div class="support" v-if="seller.supports">
+          <support-ico :size=2 :type="seller.supports[0].type"></support-ico>
+          <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
     </div>
@@ -31,7 +25,28 @@
 </template>
 
 <script>
-export default {};
+  import SupportIco from '@/components/support-ico/support-ico'
+
+export default {
+  props: {
+    seller: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  created(){
+    setTimeout(() => {
+      console.log(this.seller); 
+    }, 1000);
+  },
+
+  components:{
+    SupportIco,
+  }
+
+};
 </script>
 
 <style lang="stylus">

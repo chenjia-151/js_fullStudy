@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- header  组件 -->
-    <v-header></v-header>
+    <!-- 绑定的事件可以任意写一个名称  等号左边的名称 -->
+    <v-header :seller="seller"></v-header>
     <router-view />
   </div>
 </template>
@@ -27,7 +28,8 @@ export default {
       getSeller({
         id: this.seller.id,
       }).then((seller) => {
-        console.log(seller);
+        this.seller = Object.assign({}, this.seller, seller)
+        // console.log(this.seller);
       });
     },
   },

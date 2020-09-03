@@ -7,26 +7,49 @@
         <template slot="bar" slot-scope="props">
           <cube-scroll-nav-bar
             direction="vertical"
-            :current="current"
-            :labels="labels"
-            :txts="txts"
-            @change="changeHandler"
+            :current="props.current"
+            :labels="props.labels"
+            :txts="barTxts"
           >
             <!-- 菜单里面的内容 -->
             <template slot-scope="props">
               <div class="text">
-                <support-ico :size="3" :type="0"></support-ico>
-                <span>热销榜</span>
+                <!-- txt  是 props 中已经打理好了的东西 -->
+                <support-ico v-if="props.txt.type>-1" :size="3" :type="props.txt.type"></support-ico>
+                <span>{{props.txt.name}}</span>
               </div>
             </template>
           </cube-scroll-nav-bar>
         </template>
         <cube-scroll-nav-panel
-          v-for="item in data"
-          :key="item.name"
-          :label="item.name"
-          :title="item.name"
-        ></cube-scroll-nav-panel>
+          v-for="good in goods"
+          :key="good.name"
+          :label="good.name"
+          :title="good.name"
+        >
+          <ul>
+            <li class="food-item" v-for="(food,index) in good.foods" :key="index">
+              <div class="icon">
+                <img width="57" height="57" :src="food.icon" alt="">
+              </div>
+              <div class="content">
+                  <h2 class="name">{{food.name}}</h2>
+                  <p class="desc">{{food.description}}</p>
+                  <div class="extra">
+                      <span class="count">月售{{food.sellCount}}份</span>
+                      <span>好评率{{food.rating}}%</span>
+                  </div>
+                  <div class="price">
+                      <span class="now">￥{{food.price}}</span>
+                      <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
+                  </div>
+                  <div class="cart-control-wrapper">
+                    <cart-control :food="food"></cart-control>
+                  </div>
+              </div>
+            </li>
+          </ul>
+        </cube-scroll-nav-panel>
       </cube-scroll-nav>
     </div>
   </div>
@@ -35,53 +58,69 @@
 <script>
 import SupportIco from "@/components/support-ico/support-ico";
 import { getGoods } from "@/api";
+import CartControl from '@/components/cart-control/cart-control'
 
 export default {
-    props: {
-        data: {
-        type: Object,
-        default() {
-            return {};
-        },
-        },
+  props: {
+    data: {
+      type: Object,
+      default() {
+        return {};
+      },
     },
+  },
 
-    created() {
-        this._getGoods()
-    },
+  created() {
+    this._getGoods();
+  },
 
-    computed:{
-        // 出现需要一个菜单的集合
-    },
+  computed: {
+    // 出现需要一个菜单的集合
+    barTxts() {
+      let ret = [];
 
-    methods:{
-      _getGoods(){
-          getGoods({
-              id: this.data.id
-            }).then((goods)=>{
-              console.log('------',goods);
-            this.goods = goods
-            })
-        }
+      // 循环数据源 拿到里面的每一条数据的name 重新放进ret
+      this.goods.forEach((good) => {
+        const { type, name, foods } = good;
+        ret.push({
+          type,
+          name,
+        });
+      });
+      return ret;
     },
+  },
 
-    data(){
-        return{
-            goods:[],
-            scrollOptions:{
-                click: false,
-                directionLockThreshold: 0
-            }
-        }
+  methods: {
+    _getGoods() {
+      getGoods({
+        id: this.data.id,
+      }).then((goods) => {
+        console.log("*", goods);
+        this.goods = goods;
+      });
     },
+  },
+
+  data() {
+    return {
+      goods: [],
+      scrollOptions: {
+        click: false,
+        directionLockThreshold: 0,
+      },
+    };
+  },
 
   components: {
     SupportIco,
+    CartControl
   },
 };
 </script>
 
 <style lang="stylus" scoped>
+@import '../../common/stylus/variable.styl';
 .goods
     position: relative
     text-align: left

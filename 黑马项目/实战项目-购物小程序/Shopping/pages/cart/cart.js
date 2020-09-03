@@ -15,7 +15,7 @@
     4 把获取到的收货地址 存入到 本地存储中
  */
 
-import { getSetting, chooseAddress, openSetting } from "../../utils/asyncWx.js"
+import { getSetting, chooseAddress, openSetting, showModal, showToast } from "../../utils/asyncWx.js"
 import regeneratorRuntime from '../../lib/runtime/runtime'
 
 Page({
@@ -100,12 +100,11 @@ Page({
 
     // 选中状态取反
     cart[index].checked = !cart[index].checked
-
     this.setCart(cart)
 
   },
 
-  // 设置购物车的状态同时 同时计算 底部工具栏的数据 全选 总价格 购买的数量
+  // 设置购物车的状态 同时计算 底部工具栏的数据 全选 总价格 购买的数量
   setCart(cart) {
     // 把购物车数据重新设置回data中和缓存中
     // this.setData({
@@ -136,6 +135,7 @@ Page({
 
   // 商品的全选功能
   handleItemAllChecke() {
+
     // 获取data中的数据
     let { cart, allChecked } = this.data
 
@@ -147,5 +147,58 @@ Page({
 
     // 把修改后的值都 填充回 缓存中
     this.setCart(cart)
+  },
+
+  // 商品数量的编辑功能
+  async handleItemNumEdit(e) {
+
+    // 获取传递过来的参数
+    const { operation, id } = e.currentTarget.dataset
+    // console.log(operation,id);
+
+    // 获取购物车数组
+    let { cart } = this.data
+
+    // 找到需要修改的商品的索引
+    const index = cart.findIndex(v => v.data.message.goods_id === id)
+
+    // 判断是否要执行删除
+    if (cart[index].num === 1 && operation === -1) {
+      // 弹窗提示
+      const res = await showModal({ content: "您是否要删除？" })
+      if (res.confirm) {
+        // console.log('确定');
+        cart.splice(index, 1)
+        this.setCart(cart)
+      }
+    } else {
+      // 进行修改数量
+      cart[index].num += operation
+
+      // 设置回缓存和data中
+      this.setCart(cart)
+    }
+  },
+
+  // 点击 结算
+  async handlePay(){
+
+    // 判断收货地址
+    const {address, totalNum} = this.data
+    if(!address.userName){
+      await showToast({title:"您还没有收货地址"})
+      return
+    }
+
+    // 判断用户有没有选购商品
+    if(totalNum===0){
+      await showToast({title:"您还没有选购商品"})
+      return
+    }
+
+    // 跳转到 支付页面
+    wx.navigateTo({
+      url: '/pages/pay/pay'
+    });
   }
 })

@@ -3,20 +3,32 @@
     <!-- header  组件 -->
     <!-- 绑定的事件可以任意写一个名称  等号左边的名称 -->
     <v-header :seller="seller"></v-header>
-    <router-view />
+
+    <div class="tab">
+      <div class="tab-wrapper">
+        <router-link to="/">商品</router-link>
+      </div>
+      <div class="tab-wrapper">
+        <router-link to="/comment">评论</router-link>
+      </div>
+      <div class="tab-wrapper">
+        <router-link to="/seller">商家</router-link>
+      </div>
+    </div>
+    <router-view :data="seller" />
   </div>
 </template>
 
 <script>
-import VHeader from '@/components/v-header/v-header.vue';
-import { getSeller } from '@/api';
-import qs from 'query-string';
+import VHeader from "@/components/v-header/v-header.vue";
+import { getSeller } from "@/api";
+import qs from "query-string";
 
 export default {
   data() {
     return {
       seller: {
-        id: qs.parse(location.search).id
+        id: qs.parse(location.search).id,
       },
     };
   },
@@ -28,7 +40,7 @@ export default {
       getSeller({
         id: this.seller.id,
       }).then((seller) => {
-        this.seller = Object.assign({}, this.seller, seller)
+        this.seller = Object.assign({}, this.seller, seller);
         // console.log(this.seller);
       });
     },
@@ -39,4 +51,21 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+  @import './common/stylus/variable.styl'
+  .tab
+    width: 100%;
+    display: flex;
+    height: 36px;
+    line-height: 36px;
+    &-wrapper
+      flex: 1;
+      text-align: center;
+      color: $color-font;
+      a
+        display block
+        width 100%
+      .router-link-exact-active
+        color $color-red
+        border-bottom 2px solid $color-red
+</style>

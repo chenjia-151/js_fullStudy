@@ -20,18 +20,24 @@ import regeneratorRuntime from '../../lib/runtime/runtime'
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+  // 页面的初始数据
   data: {
-    address:{}
+    address: {},
+    cart: [],
+    allChecked: false,
+    totalPrice: 0,
+    totalNum: 0
   },
 
-  onShow: function(){
+  // 页面展示的函数
+  onShow: function () {
+    // 获取缓存中的收货地址信息
     const address = wx.getStorageSync("address");
-    this.setData({
-      address
-    })
+    // 获取缓存中的购物车数据
+    const cart = wx.getStorageSync("cart") || [];
+
+    this.setData({ address })
+    this.setCart(cart)
   },
 
   // 点击 收货地址
@@ -69,13 +75,77 @@ Page({
       }
       // 调用获取 收货地址 api
       const address = await chooseAddress()
-      address.all=address.provinceName+address.cityName+address.countyName+address.detailInfo
+      address.all = address.provinceName + address.cityName + address.countyName + address.detailInfo
       // console.log(res2);
       // 存入到缓存中
       wx.setStorageSync("address", address);
-        
+
     } catch (error) {
       console.log(error);
     }
+  },
+
+  // 商品的选中
+  handleItemChange(e) {
+
+    // 获取被修改的 商品的 id
+    const goods_id = e.currentTarget.dataset.id
+    // console.log(goods_id);
+
+    // 获取购物车数组
+    let { cart } = this.data
+
+    // 找到被修改的商品对象
+    let index = cart.findIndex(v => v.data.message.goods_id === goods_id)
+
+    // 选中状态取反
+    cart[index].checked = !cart[index].checked
+
+    this.setCart(cart)
+
+  },
+
+  // 设置购物车的状态同时 同时计算 底部工具栏的数据 全选 总价格 购买的数量
+  setCart(cart) {
+    // 把购物车数据重新设置回data中和缓存中
+    // this.setData({
+    //   cart
+    // })
+    let allChecked = true;
+    // 总价格 总数量
+    let totalPrice = 0
+    let totalNum = 0
+    cart.forEach(v => {
+      if (v.checked) {
+        totalPrice += v.num * v.data.message.goods_price
+        totalNum += v.num
+      } else {
+        allChecked = false
+      }
+    })
+    // 判断数组是否为空
+    allChecked = cart.length != 0 ? allChecked : false
+    this.setData({
+      cart,
+      totalPrice,
+      totalNum,
+      allChecked
+    })
+    wx.setStorageSync("cart", cart)
+  },
+
+  // 商品的全选功能
+  handleItemAllChecke() {
+    // 获取data中的数据
+    let { cart, allChecked } = this.data
+
+    // 修改值
+    allChecked = !allChecked
+
+    // 循环修改cart数组中 商品选中状态
+    cart.forEach(v => v.checked = allChecked)
+
+    // 把修改后的值都 填充回 缓存中
+    this.setCart(cart)
   }
 })

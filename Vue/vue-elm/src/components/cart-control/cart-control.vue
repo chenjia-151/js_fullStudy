@@ -25,7 +25,7 @@ export default {
       }
     },
     add(event) {
-      console.log(event);
+      // console.log(event);
       if (!this.food.count) {
         // 新增或修改数据中的属性
         this.$set(this.food, 'count', 1)

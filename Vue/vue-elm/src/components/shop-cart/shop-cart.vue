@@ -14,14 +14,53 @@
         <div class="desc">另需配送费¥ {{deliveryPrice}} 元</div>
       </div>
       <div class="content-right">
-        <div class="pay">去结算</div>
+        <div class="pay" :class="payClass" @click="pay">
+            {{payDesc}}
+        </div>
       </div>
+    </div>
+    <div class="ball-contain">
+        <div v-for="(ball,index) in balls" :key="index">
+            <transition>
+                <div class="ball" v-show="ball.show">
+                    <div class="inner inner-hook"></div>
+                </div>
+            </transition>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+    data(){
+        return {
+            balls:[
+                {show: false},
+                {show: false},
+                {show: false},
+                {show: false},
+                {show: false},
+            ]
+        }
+    },
+
+    methods:{
+        pay(){
+            if(this.totalPrice < this.minPrice){
+                return;
+            }else{
+                this.$createDialog({
+                    title: '支付',
+                    content: `您需要支付${this.totalPrice}元`
+                }).show()
+            }
+        },
+        drop(el){
+            console.log(el);
+        }
+    },
+
     props:{
         selectFoods:{
             type: Array,
@@ -30,6 +69,10 @@ export default {
             }
         },
         deliveryPrice:{
+            type: Number,
+            default: 0
+        },
+        minPrice:{
             type: Number,
             default: 0
         }
@@ -49,6 +92,24 @@ export default {
                 price += food.count * food.price
             })
             return price
+        },
+        payDesc(res){
+            if(this.totalPrice === 0){
+                return `￥${this.minPrice}元起送`
+            }else if(this.totalPrice<this.minPrice){
+                let diff = this.minPrice - this.totalPrice
+                return `还差￥${diff}元起送`
+            }
+            else{
+                return '去结算'
+            }
+        },
+        payClass() {
+            if(!this.totalCount || this.totalPrice<this.minPrice){
+                return 'not-enough'
+            }else{
+                return 'enough'
+            }
         }
     }
 };

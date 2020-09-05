@@ -114,7 +114,7 @@ export default {
   methods: {
     onAdd(target){
       // 小球下落
-      console.log(this.$refs.shopCart);
+      // console.log(this.$refs.shopCart);
       this.$refs.shopCart.drop(target)
     },
     _getGoods() {

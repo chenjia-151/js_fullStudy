@@ -3,6 +3,12 @@
 let ajaxTime = 0;
 
 export const request = (params) => {
+
+    let header={...params.header}
+    if(params.url.includes("/my")){
+        header["Authorization"] = wx.getStorageSync("token");
+    }
+
     ajaxTime++
     // 显示加载中 效果
     wx.showLoading({
@@ -15,6 +21,7 @@ export const request = (params) => {
     return new Promise((resolve, reject) => {
         wx.request({
             ...params,
+            header:header,
             url: baseUrl + params.url,
             success: (result) => {
                 resolve(result);

@@ -638,7 +638,7 @@ var regeneratorRuntime = (function(exports) {
         complete: function(record, afterLoc) {
             if (record.type === "throw") {
                 throw record.arg;
-            }
+            }   
 
             if (record.type === "break" ||
                 record.type === "continue") {

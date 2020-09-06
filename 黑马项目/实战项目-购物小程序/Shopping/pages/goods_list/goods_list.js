@@ -42,10 +42,11 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options);
-    this.QueryParams.cid = options.cid
+    this.QueryParams.cid = options.cid || ""
+    this.QueryParams.query = options.query || ""
     this.getGoodsList()
   },
-
+ 
   // 获取商品列表数据
   async getGoodsList() {
     const res = await request({ url: "/goods/search", data: this.QueryParams })

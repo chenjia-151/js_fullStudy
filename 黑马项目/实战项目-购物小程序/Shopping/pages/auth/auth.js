@@ -1,7 +1,7 @@
 import { request } from "../../request/index.js"
 // import regeneratorRuntime from '../../lib/runtime/runtime'
 import { login } from "../../utils/asyncWx.js"
-
+  
 Page({
 
   // 获取用户信息

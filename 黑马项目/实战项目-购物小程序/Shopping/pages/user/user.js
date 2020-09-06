@@ -23,4 +23,4 @@ Page({
       url: '/pages/user/user',
     })
   }
-})
+}) 

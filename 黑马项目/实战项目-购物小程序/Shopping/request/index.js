@@ -1,7 +1,7 @@
 
 // 同时发送异步代码的次数
 let ajaxTime = 0;
-
+ 
 export const request = (params) => {
 
     let header={...params.header}

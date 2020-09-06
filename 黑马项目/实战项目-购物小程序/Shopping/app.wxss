@@ -20,7 +20,7 @@ page{
         14px = 28rpx
     */
     font-size: 28rpx;
-}
+} 
 
 image{
     width: 100%;

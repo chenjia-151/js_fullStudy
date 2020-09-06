@@ -4,7 +4,7 @@
 	 placeholder="请输入您要搜索的商品"
 	 bindinput="handleInput"
 	></input>
-	<button bind:tap="handlecancle" hidden="{{!isFocus}}">取消</button>
+	<button bindtap="handlecancle" hidden="{{!isFocus}}">取消</button>
 </view>
 <view class="search_content">
 	<navigator

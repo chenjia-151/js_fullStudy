@@ -12,7 +12,7 @@ Page({
     totalPrice: 0,
     totalNum: 0
   },
-
+ 
   // 页面展示的函数
   onShow: function () {
 

@@ -11,7 +11,7 @@ Page({
     // 商品是否被收藏
     isCollect: false
   },
-
+ 
   // 商品对象
   GoodsInfo: {},
 

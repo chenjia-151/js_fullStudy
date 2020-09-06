@@ -43,7 +43,7 @@ Page({
     this.setData({
       goods: res.data.message.goods,
     })
-  },
+  }, 
 
   handlecancle() {
     this.setData({

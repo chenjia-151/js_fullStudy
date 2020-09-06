@@ -14,7 +14,7 @@ Page({
 
   // 接口的返回数据
   Cates: [],
-
+ 
   onLoad: function (options) {
     /**
      1. 先判断一下本地存储中有没有旧的数据

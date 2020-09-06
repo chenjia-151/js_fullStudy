@@ -27,7 +27,6 @@ Page({
     this.getSwiperList();
     this.getCatesList();
     this.getFloorList();
-
   },
 
   // 获取轮播图数据

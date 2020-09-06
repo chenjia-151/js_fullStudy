@@ -39,7 +39,7 @@ export const openSetting = () => {
         });
     })
 }
-
+ 
 // promise 形式 showModal
 export const showModal = ({ content }) => {
     return new Promise((resolve, reject) => {

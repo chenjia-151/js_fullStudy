@@ -29,7 +29,7 @@ Page({
       }
     ],
   },
-
+ 
   onShow(){
     const collect=wx.getStorageSync('collect')||[];
     this.setData({

@@ -201,4 +201,4 @@ Page({
       url: '/pages/pay/pay'
     });
   }
-})
+}) 

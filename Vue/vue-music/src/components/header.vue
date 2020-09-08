@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header-icon" @click="menuShow">
+    <div class="header-icon" @click="setShowSidebar(true)">
       <!-- slot 插槽 -->
       <slot name="left-icon"></slot>
     </div>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
-  methods:{
-    menuShow(){
-      
-    }
-  }
+  methods: {
+    ...mapActions(["setShowSidebar"]),
+  },
 };
 </script>
 

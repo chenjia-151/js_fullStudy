@@ -12,8 +12,8 @@
       </div>
       <div class="menu">
         <ul>
-          <li>
-            <router-link to="user">
+          <li @click="showToast">
+            <router-link to="">
               <i class="iconfont">&#xe643;</i>
               <span>个人中心</span>
             </router-link>
@@ -27,7 +27,7 @@
         </ul>
       </div>
     </div>
-    <div v-show="showSidebar" class="sidebar_mask"></div>
+    <div v-show="showSidebar" class="sidebar_mask" @click="hidebar"></div>
   </div>
 </template>
 
@@ -35,12 +35,18 @@
 import { mapGetters } from 'vuex'
 export default {
     data(){
-        return {
-
-        }
+      return {}
     },
     computed:{
-        ...mapGetters(['showSidebar'])
+      ...mapGetters(['showSidebar'])
+    },
+    methods:{
+      hidebar(){
+        this.$store.dispatch('setShowSidebar', false)
+      },
+      showToast(){
+        this.$toast('该功能暂未开放。。。')
+      }
     }
 };
 </script>
@@ -74,12 +80,8 @@ export default {
         margin px2rem(60px) auto px2rem(15px)
         img 
           width 100%
-        
-      
       .name 
         font-size px2rem(32px)
-      
-    
     .menu 
       margin-top px2rem(30px)
       ul 

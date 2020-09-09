@@ -1,6 +1,7 @@
-// 手动定义一个 vue 中的 UI 框架
+// 手动定义一个 vue 中的 插件
 
 let Toast = {}
+// 对象中增加一个属性
 Toast.install = function (Vue, options) {
     let opt = {
         defaultType: 'center',  // 控制 toast组件的默认显示的位置
@@ -16,8 +17,12 @@ Toast.install = function (Vue, options) {
             opt.defaultType = type  //  如果传了type 那么就使用该 type 作为位置展示
         }
 
+        // if(document.getElementsByClassName('vue-toast'.length)){
+        //     return
+        // }
+
         let toastTpl = Vue.extend({
-            template: '<div class="vue-toast toast- ' + opt.defaultType + '">' + tips + '</div>'
+            template: '<div class="vue-toast toast-' + opt.defaultType + '">' + tips + '</div>'
         })
 
         let tpl = new toastTpl().$mount().$el;   //  编译成 HTML结构
@@ -28,7 +33,7 @@ Toast.install = function (Vue, options) {
     }
 
     ['buttom', 'center', 'top'].forEach(type => {
-        Vue.prototype.$toast[type] = (tips)=>{
+        Vue.prototype.$toast[type] = (tips) => {
             return Vue.prototype.$toast(tips, type)
         }
     })

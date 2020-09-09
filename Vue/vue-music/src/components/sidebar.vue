@@ -18,7 +18,7 @@
               <span>个人中心</span>
             </router-link>
           </li>
-          <li>
+          <li @click="showToast">
             <router-link to="user">
               <i class="iconfont">&#xe643;</i>
               <span>个人中心</span>

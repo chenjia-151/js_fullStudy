@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     _initScroll() {
-      if (this.$refs.wrapper) {
+      if (!this.$refs.wrapper) {
         return;
       }
       this.scroll = new BScroll(this.$refs.wrapper, {

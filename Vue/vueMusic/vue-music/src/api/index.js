@@ -26,7 +26,9 @@ axios.interceptors.response.use(
 
 
 export function fetchGet(url, param) {
+    // 返回一个 Promise 对象， 目的是为了能够在 fetchGet被执行后能够 执行 .then
     return new Promise((resolve, reject) => {
+        // axios 中原本就有Promise对象，所以能够走 .then 
         axios.get(url, {
             params: param
         })

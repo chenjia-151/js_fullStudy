@@ -32,33 +32,33 @@ export function fetchGet(url, param) {
         axios.get(url, {
             params: param
         })
-        .then(
-            response => {
-                resolve(response)
-            },
-            err => {
-                reject(err)
-            }
-        )
-        .catch(error => {
-            reject(error)
-        })
+            .then(
+                response => {
+                    resolve(response)
+                },
+                err => {
+                    reject(err)
+                }
+            )
+            .catch(error => {
+                reject(error)
+            })
     })
 }
 
 
-export default{
+export default {
     // 用户登录
-    Login(params){
+    Login(params) {
         return fetchGet('/login', params)
     },
     // 热门搜索
-    HotSearchKey(){
+    HotSearchKey() {
         return fetchGet('/search/hot')
     },
     // 获取歌曲列表  music搜索
-    MusicSearch(params){
-        return fetchGet('/search',params)
+    MusicSearch(params) {
+        return fetchGet('/search', params)
     }
 
 }

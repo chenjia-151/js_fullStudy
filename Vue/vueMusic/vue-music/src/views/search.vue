@@ -30,7 +30,7 @@
     </div>
     <!-- 搜索结果列表 -->
     <div class="search-result" ref="searchResult" v-show="query">
-      <v-search-result></v-search-result>
+      <v-search-result :query="query" @select="saveSearch"></v-search-result>
     </div>
   </div>
 </template>
@@ -41,46 +41,60 @@ import searchList from "@/components/searchList";
 import searchResult from "@/components/searchResult";
 import scroll from "@/components/scroll";
 import { searchMixin } from "@/common/js/mixin";
-import { mapGetters, mapActions } from 'vuex'
-import api from '@/api'
+import { mapGetters, mapActions } from "vuex";
+import api from "@/api";
 
 export default {
   components: {
     "v-search-box": searchBox,
-    'v-search-list': searchList,
-    'v-search-result': searchResult,
+    "v-search-list": searchList,
+    "v-search-result": searchResult,
     "v-scroll": scroll,
   },
   mixins: [searchMixin],
   data() {
     return {
-      hotKey: [],
+      hotKey: []
     };
   },
-  computed:{
-    ...mapGetters(['searchHistory'])
+  computed: {
+    ...mapGetters(["searchHistory"]),
   },
-  created(){
-    this._getHotKey()
+  created() {
+    this._getHotKey();
   },
   methods: {
-    _getHotKey() {   //  获取热门搜索
-      api.HotSearchKey().then((res)=>{
+
+    _getHotKey() {
+      //  获取热门搜索
+      api.HotSearchKey().then((res) => {
         // console.log(res);
-        this.hotKey = res.result.hots.slice(0,10)
-      })
+        this.hotKey = res.result.hots.slice(0, 10);
+      });
     },
-    ...mapActions(['deleteSearchHistory','clearSearchHistory'])
+
+    ...mapActions(
+      [
+        "deleteSearchHistory", 
+        "clearSearchHistory", 
+        "saveSearchHistory"
+      ]
+    ),
+
+    saveSearch(){
+      // 保存历史记录
+      this.saveSearchHistory(this.query)
+    }
   },
-  watch:{
-    query(newQuery){
-      if(newQuery){
+  watch: {
+    query(newQuery) {
+      if (newQuery) {
         setTimeout(() => {
-          this.$refs.shortcut.refresh
+          this.$refs.shortcut.refresh;
         }, 20);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

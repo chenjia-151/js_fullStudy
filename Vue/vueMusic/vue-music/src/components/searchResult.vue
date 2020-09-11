@@ -1,29 +1,103 @@
 <template>
-  <v-scroll ref="suggest" class="suggest">
-      <ul class="suggest-list">
-          <li class="suggest-item">
-              <div class="icon">
-                  <i class="iconfont">&#xe805;</i>
-              </div>
-              <div class="name">
-                  <p class="text">有何不可</p>
-              </div>
-          </li>
-      </ul>
+  <v-scroll 
+    ref="suggest" 
+    class="suggest" 
+    :data="result" 
+    :pullup="pullup"
+    @scrollToEnd="searchMore"
+    :beforeScroll="beforeScroll"
+  >
+    <ul class="suggest-list">
+      <li class="suggest-item" @click="selectItem(item)" v-for="(item,index) in result" :key="index">
+        <div class="icon">
+          <i class="iconfont">&#xe805;</i>
+        </div>
+        <div class="name">
+          <p class="text" v-html="getDisplayName(item)">{{item.artists.name}}</p>
+        </div>
+      </li>
+    </ul>
   </v-scroll>
 </template>
 
 <script>
-import scroll from '@/components/scroll'
+import scroll from "@/components/scroll";
+import api from "@/api";
+
+const limit = 20;
 
 export default {
-    components:{
-        'v-scroll':scroll
+  props: {
+    query: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {
+      page: 1,
+      result: [],
+      hasMore: true,
+      pullup: true,
+      beforeScroll: true
+    };
+  },
+  components: {
+    "v-scroll": scroll,
+  },
+  methods: {
+    fetchResult(page) {
+      const params = {
+        limit,
+        offset: ( page - 1 ) * limit,
+        keywords: this.query,
+      };
+      api.MusicSearch(params).then((res) => {
+        // console.log(res);
+        if(res.result.songs){
+          this.result = [...this.result,...res.result.songs]
+          this._checkMore(res.result)
+        }
+      });
+    },
+    search() {
+      this.page = 1;
+      this.hasMore = true;
+      this.$refs.suggest.scrollTo(0,0);
+      this.result = [];
+      this.fetchResult(this.page);
+    },
+    getDisplayName(item){
+      return `${item.name} - ${item.artists[0] && item.artists[0].name}`
+    },
+    searchMore(){
+      if(!this.hasMore){
+        return
+      }
+      this.page++
+      this.fetchResult(this.page)
+    },
+    _checkMore(data){
+      if(data.songs.length < 12 || ((this.page-1)*limit)>=data.songCount){
+        this.hasMore = false
+      }
+    },
+    selectItem(item){
+      this.$emit('select', item)
     }
-}
+  },
+  watch: {
+    query(newQuery) {
+      if (!newQuery) {
+        return;
+      }
+      this.search();
+    },
+  },
+};
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus" scoped>
 @import "../assets/css/function.styl"
 .suggest 
   height 100%

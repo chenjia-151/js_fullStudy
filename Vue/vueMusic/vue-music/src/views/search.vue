@@ -1,32 +1,87 @@
 <template>
   <div class="search">
-      <div class="search-box-wrapper">
-          <v-search-box @query="onQueryChange"></v-search-box>
-      </div>
-      <!-- 热搜 -->
-      <div class="shortcut-wrapper" ref="shortcutWrapper">
-          <v-scroll>
-            <div>
-              123
-            </div>
-          </v-scroll>
-      </div>
+    <div class="search-box-wrapper">
+      <v-search-box @query="onQueryChange"></v-search-box>
+    </div>
+    <!-- 热搜 -->
+    <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
+      <v-scroll class="shortcut" ref="shortcut">
+        <div>
+          <div class="hot-key">
+            <h1 class="title">热门搜索</h1>
+            <ul>
+              <li class="item" v-for="(item,index) in hotKey" :key="index">
+                <span>{{item.first}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="search-history" v-show="searchHistory.length">
+            <h1 class="title">
+              <span class="text">搜索历史</span>
+              <span class="clear" @click="clearSearchHistory">
+                <i class="iconfont">&#xe633;</i>
+              </span>
+            </h1>
+            <!-- 搜索历史列表 -->
+            <v-search-list :searches="searchHistory" @delete="deleteSearchHistory"></v-search-list>
+          </div>
+        </div>
+      </v-scroll>
+    </div>
+    <!-- 搜索结果列表 -->
+    <div class="search-result" ref="searchResult" v-show="query">
+      <v-search-result></v-search-result>
+    </div>
   </div>
 </template>
 
 <script>
-import searchBox from '@/components/searchBox'
-import scroll from '@/components/scroll'
-import { searchMixin } from '@/common/js/mixin'
+import searchBox from "@/components/searchBox";
+import searchList from "@/components/searchList";
+import searchResult from "@/components/searchResult";
+import scroll from "@/components/scroll";
+import { searchMixin } from "@/common/js/mixin";
+import { mapGetters, mapActions } from 'vuex'
+import api from '@/api'
 
 export default {
-    components:{
-        'v-search-box': searchBox,
-        'v-scroll': scroll
+  components: {
+    "v-search-box": searchBox,
+    'v-search-list': searchList,
+    'v-search-result': searchResult,
+    "v-scroll": scroll,
+  },
+  mixins: [searchMixin],
+  data() {
+    return {
+      hotKey: [],
+    };
+  },
+  computed:{
+    ...mapGetters(['searchHistory'])
+  },
+  created(){
+    this._getHotKey()
+  },
+  methods: {
+    _getHotKey() {   //  获取热门搜索
+      api.HotSearchKey().then((res)=>{
+        // console.log(res);
+        this.hotKey = res.result.hots.slice(0,10)
+      })
     },
-    mixins: [searchMixin],
-    methods:{}
-}
+    ...mapActions(['deleteSearchHistory','clearSearchHistory'])
+  },
+  watch:{
+    query(newQuery){
+      if(newQuery){
+        setTimeout(() => {
+          this.$refs.shortcut.refresh
+        }, 20);
+      }
+    }
+  }
+};
 </script>
 
 <style lang="stylus" scoped>

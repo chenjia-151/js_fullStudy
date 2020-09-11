@@ -5,7 +5,7 @@ const vue = new Vue()
 
 // axios 配置
 axios.defaults.timeout = 10000   //  设置网络时长 
-axios.defaults.baseUrl = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3000'
 
 // 返回状态判断 (响应拦截)  当后端向前端返回数据时发生
 axios.interceptors.response.use(
@@ -15,7 +15,7 @@ axios.interceptors.response.use(
             vue.$toast('网络异常，请重试！')
             return Promise.reject(res)
         }
-        return res
+        return res.data
     },
     // 第二个回调函数返回的参数代表的是 服务器崩溃 
     (error) => {
@@ -55,5 +55,10 @@ export default{
     // 热门搜索
     HotSearchKey(){
         return fetchGet('/search/hot')
+    },
+    // 获取歌曲列表  music搜索
+    MusicSearch(params){
+        return fetchGet('/search',params)
     }
+
 }

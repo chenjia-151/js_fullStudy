@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" id="input">
+        <span id="span"></span>
+    </div>
+
+    <script>
+        const data = {
+            text: 'Hello World'
+        }
+
+        const input = document.getElementById('input')
+        const span = document.getElementById('span')
+
+        // 数据劫持  defineProperty 中自带的两个方法  只能监听对象
+        Object.defineProperty(data, 'text', {    //第一个参数为 对象， 第二个参数为 对象中的属性
+            get() {
+                console.log('获取数据');
+            },
+            set(newVal){
+                console.log('修改数据');
+                input.value = newVal   //  data.text = 'newVal'
+                span.innerHTML = newVal
+            }
+        })
+
+        input.addEventListener('keyup',function(e){
+            // console.log(e);
+            data.text = e.target.value
+        })
+    </script>
+</body>
+
+</html>

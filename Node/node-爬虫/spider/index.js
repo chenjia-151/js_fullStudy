@@ -24,10 +24,13 @@ https.get('https://movie.douban.com/top250', (res) => {
         let allFilms = []
         $('li .item').each(function () {   //  each ==> for 循环
             const title = $('.title', this).text()     //  取DOM结构中的文本内容
+            const other = $('.other', this).text()
+            const playable = $('.playable', this).text()
+            const actor = $('.bd p', this).text()
             const star = $('.rating_num', this).text()
             const pic = $('.pic img', this).attr('src')   //  取DOM结构中的图片内容
             const inq = $('.inq', this).text()
-            allFilms.push({ title, star, pic, inq })
+            allFilms.push({ title, other,playable,actor, star, pic, inq })
         })
         // console.log(allFilms);
         fs.writeFile('files.json', JSON.stringify(allFilms), (err) => {

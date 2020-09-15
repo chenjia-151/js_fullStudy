@@ -5,10 +5,15 @@ import store from './store'
 import 'amfe-flexible'
 import { Swipe, SwipeItem, Icon, Field, ActionSheet, Toast, Panel, Uploader, Form } from 'vant';
 import 'vant/lib/index.css';
+import axios from 'axios'
+import util from './assets/js/util'
 
-Vue.use(Swipe).use(SwipeItem).use(Icon).use(Field).use(ActionSheet).use(Toast).use(Panel).use(Uploader).use(Form)
+Vue.use(Swipe).use(SwipeItem).use(Icon).use(Field).use(ActionSheet).use(Toast).use(Panel).use(Uploader).use(Form).use(axios)
 
-router.beforeEach((to,from, next)=>{
+Vue.prototype.$http = axios
+Vue.prototype.$util = util
+
+router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   next()
 })

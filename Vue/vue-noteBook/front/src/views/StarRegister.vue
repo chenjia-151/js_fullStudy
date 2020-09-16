@@ -55,15 +55,15 @@ export default {
           username: this.username.trim(),
           userpwd: this.userpwd.trim(),
         },
-      }).then((res)=>{
+      }).then((res) => {
         //   console.log(res);
-        if(res.data.code === "80000"){
-            this.$toast(res.data.mess)
-            this.login()
+        if (res.data.code === "80000") {
+          this.$toast(res.data.mess);
+          this.login();
         } else {
-            this.$toast(res.data.mess)
+          this.$toast(res.data.mess);
         }
-      })
+      });
     },
     login() {
       this.$router.push({ path: "/StarLogin" });

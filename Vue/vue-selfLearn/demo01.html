@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.common.dev.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>{{count}}</p>
+        <button @click="add">+</button> |
+        <button @click="desc">-</button>
+
+        <div class="item" v-for="(item,index) in list" :key="index">
+            <p>{{item}}</p>
+        </div>
+
+        <div class="item" v-for="(item,index) in people" :key="index">
+            <p>{{item.name}}-{{item.age}}</p>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        var app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello World!',
+            count: 1,
+            list:['a','b','c','d'],
+            people:[
+                {name: '1',age: 1},
+                {name: '2',age: 2},
+                {name: '3',age: 3},
+            ]
+        },
+        methods:{
+            add(){
+                if(this.count < 10){
+                    this.count++
+                } else{
+                    alert('不能再加了')
+                }
+            },  
+            desc(){
+                if(this.count > 0){
+                    this.count--
+                } else{
+                    alert("不能再减了")
+                }
+            }
+        }
+    })
+    </script>
+
+</body>
+
+</html>

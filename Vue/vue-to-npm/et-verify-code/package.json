@@ -1,23 +1,24 @@
 {
-  "name": "et-verify-code",
-  "version": "0.1.0",
-  "main": "lib/et-verify-code.umd.min.js",
-  "author": "jack_chen",
+  "name": "jack-verify-code",
+  "version": "0.1.1",
+  "main": "lib/jack-verify-code.umd.min.js",
+  "author": "jack_chenjiahao",
   "keywords": [
     "vue",
     "verify-code",
-    "et-verify-code"
+    "jack-verify-code"
   ],
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name et-verify-code --dest lib ./src/main.js",
+    "lib": "vue-cli-service build --target lib --name jack-verify-code --dest lib ./src/main.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "jack-verify-code": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

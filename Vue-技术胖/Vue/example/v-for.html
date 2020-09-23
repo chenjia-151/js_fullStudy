@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>HelloWorld</title>
+</head>
+
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in sortList" :key="index">{{index+1}}:{{item.name}}-{{item.age}}</li><br>
+        </ul>
+        <ul>
+            <li v-for="item in sortItems">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                list: [
+                    { name: 'zhang', age: 5 },
+                    { name: 'li', age: 26 },
+                    { name: 'wang', age: 13 },
+                    { name: 'chen', age: 45 }
+                ],
+                items: [12, 45, 7, 23, 56, 34]
+            },
+            computed: {
+                sortItems: function () {
+                    return this.items.sort(sortNumber)
+                },
+                sortList: function(){
+                    return sortByKey(this.list,'age')
+                }
+            }
+        })
+        // 数组排序
+        function sortNumber(a, b) {
+            return a - b;
+        }
+        // 数组对象排序
+        function sortByKey(array,key){
+            return array.sort(function(a,b){
+                var x=a[key]
+                var y=b[key]
+                return ((x<y)?-1:((x>y)?1:0))
+            })
+        }
+    </script>
+</body>
+
+</html>

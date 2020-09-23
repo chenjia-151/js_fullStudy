@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>v-on</title>
+</head>
+
+<body>
+    <h1>v-on实例</h1>
+    <hr>
+    <div id="app">
+        本场比赛得分:{{code}}
+        <p>
+            <button @click="add">+</button>
+            <button @click="desc">-</button><br>
+            <input type="text" @keyup.enter="Enter" v-model="addCode">
+        </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                code: 0,
+                addCode: 1
+            },
+            methods: {
+                add() {
+                    this.code += 2
+                },
+                desc() {
+                    this.code--
+                },
+                Enter() {
+                    this.code = this.code + parseInt(this.addCode)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Vue.set 全局操作</title>
+</head>
+
+<body>
+    <h1>Vue.set 全局操作</h1>
+    <hr>
+    <div id="app">
+        {{count}}
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+    <p><button onclick="add()">add</button></p>
+
+    <script>
+        function add() {
+            // 通过使用三种方法来改变构造器外部的数据
+            // Vue.set(outData, 'count', 2)
+            // app.count++
+            // outData.count++
+
+            // app.arr[1]='ddd'
+            Vue.set(app.arr, 1, 'dddddd')
+            // 通过Vue.set来监听数组所对应的下标的数据的改变
+        }
+
+        // 在构造器外部定义数据，赋值给构造器  outData
+        var outData = {
+            count: 1,
+            // goods: 'car',
+            arr: ['aaa', 'bbb', 'ccc']
+        }
+        var app = new Vue({
+            el: "#app",
+            data: outData
+        })
+    </script>
+</body>
+
+</html>

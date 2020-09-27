@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>mixinsOption</title>
+</head>
+
+<body>
+    <h1>mixinsOption</h1>
+    <hr>
+    <div id="app">
+        {{num}}
+        <!-- ${ num } -->
+        <p><button @click="add">+</button></p>
+    </div>
+
+    <script>
+        var extendsObj = {
+            updated() {
+                console.log('扩展的updated');
+            },
+            //当名字出现相同的时候，扩展出来的方法不会执行
+            methods: {
+                add() {
+                    console.log('扩展出来的方法');  // 不执行
+                    this.num++
+                }
+            }
+        }
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 1
+            },
+            methods: {
+                add() {
+                    console.log('原生的方法');
+                    this.num++
+                }
+            },
+            updated() {
+                console.log('原生的update');
+            },
+            extends: extendsObj
+            // 插值形式
+            // delimiters: ['${', '}']
+        })
+    </script>
+</body>
+
+</html>

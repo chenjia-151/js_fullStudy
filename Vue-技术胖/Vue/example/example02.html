@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>example Methods Demo</title>
+</head>
+
+<body>
+    <h1>example Methods Demo</h1>
+    <hr>
+    <div id="app"></div>
+
+    <p><button onclick="destroy()">卸载</button></p>
+
+    <p><button onclick="reload()">刷新</button></p>
+
+    <p><button onclick="tick()">更改数据</button></p>
+
+    <script>
+        var jack = Vue.extend({
+            template: `<p>{{message}}</p>`,
+            data() {
+                return {
+                    message: 'Hello, I am jack'
+                }
+            },
+            mounted() {
+                console.log("mounted 被创建");
+            },
+            destroyed() {
+                console.log("destroy 销毁之后");
+            },
+            updated() {
+                console.log("updated 更新之后");
+            }
+        })
+
+        // 使用$mount方法，将对象挂载到DOM结点上
+        var vm = new jack().$mount("#app")
+
+        function destroy() {
+            vm.$destroy()
+        }
+
+        function reload() {
+            vm.$forceUpdate()
+        }
+
+        function tick() {
+            vm.message = "update message info ";
+            vm.$nextTick(() => {
+                console.log('message更新完后我被调用了');
+            })
+        }
+
+    </script>
+</body>
+
+</html>

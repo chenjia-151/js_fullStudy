@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>example04 slot内置组件</title>
+</head>
+
+<body>
+    <h1>example04 slot内置组件</h1>
+    <hr>
+    <div id="app">
+        <jack>
+            <span slot="Url">{{jackData.Url}}</span>
+            <span slot="Name">{{jackData.Name}}</span>
+            <span slot="skill">{{jackData.skill}}</span>
+        </jack>
+    </div>
+
+    <template id="tep">
+        <div>
+            <p>地址：<slot name="Url"></slot></p>
+            <p>网名：<slot name="Name"></slot></p>
+            <p>技术：<slot name="skill"></slot></p>
+        </div>
+    </template>
+
+    <script>
+        var jack = {
+            template: "#tep"
+        }
+        var app = new Vue({
+            el: "#app",
+            data: {
+                jackData: {
+                    Url: 'https://www.baidu.com',
+                    Name: '百度',
+                    skill: '千百度'
+                }
+            },
+            components: {
+                'jack': jack
+            }
+        })
+    </script>
+</body>
+
+</html>

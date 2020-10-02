@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-      <p>{{message}}</p>
+      <p>{{num}}</p>
+      <p class="button"><button @click="add()">+</button></p> |
+      <p><button @click="reduce()">-</button></p>
   </div>
 </template>
 
@@ -8,7 +10,15 @@
 export default {
     data(){
         return{
-            message: 'Hello World'
+            num:0
+        }
+    },
+    methods:{
+        add(){
+            this.num++
+        },
+        reduce(){
+            this.num--
         }
     }
 }

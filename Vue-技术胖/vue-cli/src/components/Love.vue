@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <p>{{msg}}</p>
     <input class="input" type="text" v-model="msg" /><br>
     <button @click="add()">+</button> |
     <button @click="desc()">-</button>

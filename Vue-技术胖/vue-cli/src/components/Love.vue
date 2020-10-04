@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <p>{{msg}}</p>
-    <input class="input" type="text" v-model="msg" /><br>
+      <p>{{num}}</p>
+    <input class="input" type="text" v-model="num" /><br>
     <button @click="add()">+</button> |
     <button @click="desc()">-</button>
   </div>
@@ -11,15 +11,15 @@
 export default {
   data() {
     return {
-      msg: 1,
+      num: 1,
     };
   },
   methods: {
     add() {
-      this.msg++;
+      this.num++;
     },
     desc() {
-      this.msg--;
+      this.num--;
     },
   },
 };

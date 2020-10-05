@@ -20,8 +20,32 @@
           </li>
           <li @click="showToast">
             <router-link to="user">
-              <i class="iconfont">&#xe643;</i>
-              <span>个人中心</span>
+              <i class="iconfont">&#xe6e9;</i>
+              <span>音效调整</span>
+            </router-link>
+          </li>
+          <li @click="showToast">
+            <router-link to="user">
+              <i class="iconfont">&#xe77e;</i>
+              <span>定时关闭</span>
+            </router-link>
+          </li>
+          <li @click="showToast">
+            <router-link to="user">
+              <i class="iconfont">&#xe631;</i>
+              <span>听歌识曲</span>
+            </router-link>
+          </li>
+          <li @click="showToast">
+            <router-link to="user">
+              <i class="iconfont">&#xe696;</i>
+              <span>帮助</span>
+            </router-link>
+          </li>
+          <li @click="showToast">
+            <router-link to="user">
+              <i class="iconfont">&#xe765;</i>
+              <span>设置</span>
             </router-link>
           </li>
         </ul>

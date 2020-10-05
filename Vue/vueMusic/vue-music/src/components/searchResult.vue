@@ -1,7 +1,7 @@
 <template>
   <v-scroll
     ref="suggest"
-    class="suggest"
+    class="suggest" 
     :data="result"
     :pullup="pullup"
     @scrollToEnd="searchMore"

@@ -8,7 +8,7 @@
 export default {
     data(){
         return{
-            msg: 'I am Hi page'
+            msg: 'I am Hi1 page'
         }
     }
 }

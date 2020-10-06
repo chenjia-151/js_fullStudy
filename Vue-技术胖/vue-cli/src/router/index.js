@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Like from '../views/Like.vue'
-import Hi from '../views/Hi.vue'
+import Home from '@/views/Home.vue'
+import Like from '@/views/Like.vue'
+import Hi from '@/components/Hi.vue'
+import Hi1 from '@/components/Hi1.vue'
+import Hi2 from '@/components/Hi2.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +22,21 @@ const routes = [
   {
     path: '/hi',
     name: 'Hi',
-    component: Hi
+    component: Hi,
+    children: [
+      {
+        path: '/',
+        component: Hi
+      },
+      {
+        path: 'hi1',
+        component: Hi1
+      },
+      {
+        path: 'hi2',
+        component: Hi2
+      },
+    ]
   }
 ]
 

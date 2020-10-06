@@ -15,6 +15,11 @@ const routes = [
     path: '/like',
     name: 'Like',
     component: Like
+  },
+  {
+    path: '/link',
+    name: 'Link',
+    component: Link
   }
 ]
 

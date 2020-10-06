@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Like from '../views/Like.vue'
+import Hi from '../views/Hi.vue'
 
 Vue.use(VueRouter)
 
@@ -17,9 +18,9 @@ const routes = [
     component: Like
   },
   {
-    path: '/link',
-    name: 'Link',
-    component: Link
+    path: '/hi',
+    name: 'Hi',
+    component: Hi
   }
 ]
 

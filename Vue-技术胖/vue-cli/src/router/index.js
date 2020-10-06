@@ -21,19 +21,21 @@ const routes = [
   },
   {
     path: '/hi',
-    name: 'Hi',
     component: Hi,
     children: [
       {
         path: '/',
+        name: 'Hi',
         component: Hi
       },
       {
         path: 'hi1',
+        name: 'hi1',
         component: Hi1
       },
       {
         path: 'hi2',
+        name: 'hi2',
         component: Hi2
       },
     ]

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Hello from '@/components/Hello'
-// import Hi1 from '@/components/Hi1'
+import Hi1 from '@/components/Hi1'
 // import Hi2 from '@/components/Hi2'
 import Params from '@/components/params'
 
@@ -24,6 +24,11 @@ const routes = [
   {
     path: '/goParams/:newsId/:newsTitle',
     redirect: '/params/:newsId/:newsTitle'  // 重定向带参数
+  },
+  {
+    path: '/Hi1',
+    component: Hi1,
+    alias: '/jack'
   }
 ]
 

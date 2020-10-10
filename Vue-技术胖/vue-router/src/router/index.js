@@ -11,13 +11,20 @@ const routes = [
   {
     path: '/',
     name: 'Hello',
-    component:Hello
+    component: Hello
   },
   {
     path: '/params/:newsId/:newsTitle',
-    component:Params
+    component: Params
+  },
+  {
+    path: '/goHome',
+    redirect: '/' // 重定向
+  },
+  {
+    path: '/goParams/:newsId/:newsTitle',
+    redirect: '/params/:newsId/:newsTitle'  // 重定向带参数
   }
-
 ]
 
 const router = new VueRouter({

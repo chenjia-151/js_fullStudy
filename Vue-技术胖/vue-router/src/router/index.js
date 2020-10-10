@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Hi1 from '@/components/Hi1'
 // import Hi2 from '@/components/Hi2'
 import Params from '@/components/params'
+import Error from '@/components/Error'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,10 @@ const routes = [
     path: '/Hi1',
     component: Hi1,
     alias: '/jack'
+  },
+  {
+    path: '*',
+    component: Error
   }
 ]
 

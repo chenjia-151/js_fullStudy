@@ -7,7 +7,7 @@
     <router-link to="/goParams/918/I like vue.js">goParams</router-link> |
     <router-link to="/hi1">Hi1</router-link> |
     <router-link to="/jack">jack</router-link> |
-    <router-link to="/21121">我是瞎写的</router-link> |
+    <router-link to="/21121">错误</router-link> |
 
     <transition name="fade" mode="out-in">
       <router-view></router-view>

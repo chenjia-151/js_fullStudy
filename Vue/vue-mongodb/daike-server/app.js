@@ -16,6 +16,7 @@ mongoose.connect(config.db, { useNewUrlParser: true }, (err) => {
 })
 
 app.use(cors())
+
 app.use(bodyParser())
 
 const user_router = require('./routes/api/user_router')

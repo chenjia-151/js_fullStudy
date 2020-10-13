@@ -32,6 +32,7 @@ Toast.install = function (Vue, options) {
         }, opt.duration);
     }
 
+    // 设置type的值只允许为 buttom center top 
     ['buttom', 'center', 'top'].forEach(type => {
         Vue.prototype.$toast[type] = (tips) => {
             return Vue.prototype.$toast(tips, type)

@@ -104,6 +104,7 @@ export default {
         margin px2rem(60px) auto px2rem(15px)
         img 
           width 100%
+          border-radius 50px
       .name 
         font-size px2rem(32px)
     .menu 

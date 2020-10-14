@@ -1,12 +1,25 @@
 <template>
-  <div>
-      plan
+  <div> 
+      <create @handlePlan="handlePlan"></create>
   </div>
 </template>
 
 <script>
+import Create from './create'
 export default {
+  components:{
+    Create
+  },
+  setup(){
+    const handlePlan = (plan) => {
+      // console.log(plan);
+      
+    }
 
+    return{
+      handlePlan
+    }
+  }
 }
 </script>
 

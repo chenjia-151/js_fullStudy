@@ -19,7 +19,17 @@
     </a-layout-header>
     <a-layout-content style="padding: 0 50px">
       <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
-        <router-view></router-view>
+        <a-row>
+          <a-col :span="6">
+            <a-card title="Default size card" style="width: 300px">
+              <template v-slot:extra><a href="#">more</a></template>
+              <p>计划总时间:{{allTime}}</p>
+            </a-card>
+          </a-col>
+          <a-col :span="16" :offset="2">
+            <router-view></router-view>
+          </a-col>
+        </a-row>
       </div>
     </a-layout-content>
     <a-layout-footer style="text-align: center">
@@ -32,6 +42,7 @@
 // composition api
 import { computed, reactive, toRefs, watch } from "vue";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   // 入口函数(最开始执行的函数) 默认只执行一次 里面没有this 拿不到vue的实例
@@ -40,9 +51,14 @@ export default {
     //     return <h1>Hello</h1>  // jsx语法
     // }
     const route = useRoute();
+    const store = useStore();
     const state = reactive({
       //   selectedKeys: [],
       count: 0,
+      selectedKeys: computed(() => {
+        return [route.path];
+      }),
+      allTime: store.getters.allTime,
     });
 
     // watch(  // 接收三个参数
@@ -53,9 +69,11 @@ export default {
     //   { immediate: true } // immediate 立即执行
     // );
 
-    const selectedKeys = computed(() => {
-      return [route.path];
-    });
+    // const selectedKeys = computed(() => {
+    //   return [route.path];
+    // });
+
+    // console.log(store.getters.allTime);
 
     // console.log(toRefs(state));
     // setTimeout(() => {
@@ -66,11 +84,12 @@ export default {
       //   selectedKeys:state.selectedKeys,
       //   count: state.count
       ...toRefs(state), // 保证数据是响应式的,且做了解构操作
-      selectedKeys
+      // selectedKeys,
     };
   },
 };
 </script>
+
 <style>
 #components-layout-demo-top .logo {
   width: 120px;

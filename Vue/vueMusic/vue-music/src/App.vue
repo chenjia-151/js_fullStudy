@@ -40,12 +40,12 @@ export default {
 <style lang="stylus">
 @font-face {
   font-family: 'iconfont';  /* project id 2052943 */
-  src: url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.eot');
-  src: url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_2052943_u6sw5e7cps8.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.eot');
+  src: url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_2052943_xbsdi5oilvp.svg#iconfont') format('svg');
 }
 .iconfont{
     font-family:"iconfont" !important;

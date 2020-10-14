@@ -2,10 +2,13 @@
   <div class="player">
     <div class="normal-player" v-show="fullScreen">
       <div class="background">
-        <img src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" alt="">
+        <img
+          src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg"
+          alt=""
+        />
       </div>
       <div class="top">
-        <div class="back" @click="showFullScreen">
+        <div class="back" @click="showMiniScreen">
           <i class="iconfont">&#xe727;</i>
         </div>
         <h1 class="title">有何不可</h1>
@@ -14,19 +17,40 @@
       <div class="middle">
         <div class="middle-l">
           <div class="cd-wrapper">
-            <div class="cd" style="transform: matrix(0.975917, 0.218143, -0.218143, 0.975917, 0, 0) matrix(-0.939157, -0.343488, 0.343488, -0.939157, 0, 0)">
-              <img class="image" src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" alt="">
+            <div
+              class="cd"
+              style="
+                transform: matrix(0.975917, 0.218143, -0.218143, 0.975917, 0, 0)
+                  matrix(-0.939157, -0.343488, 0.343488, -0.939157, 0, 0);
+              "
+            >
+              <img
+                class="image"
+                src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg"
+                alt=""
+              />
               <div class="play"></div>
             </div>
           </div>
           <div class="playing-lyric-wrapper">
-            <div class="playing-lyric">
-              作词：许嵩
-            </div>
+            <div class="playing-lyric">作词：许嵩</div>
           </div>
         </div>
-        <div class="middle-r" style="transform: translate3d(0px, 0px, 0px); transition-duration: 300ms;">
-          <div class="lyric-wrapper" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 1000ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+        <div
+          class="middle-r"
+          style="
+            transform: translate3d(0px, 0px, 0px);
+            transition-duration: 300ms;
+          "
+        >
+          <div
+            class="lyric-wrapper"
+            style="
+              transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+              transition-duration: 1000ms;
+              transform: translate(0px, 0px) scale(1) translateZ(0px);
+            "
+          >
             <div>
               <p class="text">作曲：许嵩</p>
               <p class="text current">作词：许嵩</p>
@@ -48,7 +72,7 @@
         <div class="operators-box">
           <div class="operators">
             <div class="icon-box i-left">
-              <i class="iconfont" style="font-size: 20px;">&#xe617;</i>
+              <i class="iconfont" style="font-size: 20px">&#xe617;</i>
             </div>
             <div class="icon-box i-left">
               <i class="iconfont">&#xe62f;</i>
@@ -62,10 +86,38 @@
               <i class="iconfont">&#xe62e;</i>
             </div>
             <div class="icon-box i-right">
-              <i class="iconfont" style="font-size: 28px;">&#xe636;</i>
+              <i class="iconfont" style="font-size: 28px">&#xe636;</i>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="mini-player" v-show="!fullScreen">
+      <div class="picture">
+        <div class="imgWrapper"  @click="showFullScreen">
+          <img
+            width="40"
+            height="40"
+            src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="text">
+        <h2 class="name">有何不可</h2>
+        <p class="desc">许嵩</p>
+      </div>
+      <div class="control">
+        <i class="iconfont icon-mini">&#xe610;</i>
+      </div>
+      <div class="control">
+        <i class="iconfont" style="font-size: 24px">&#xe62e;</i>
+      </div>
+      <div class="control">
+        <i class="iconfont">&#xe636;</i>
+      </div>
+      <div class="bottom-progress-bar">
+        <div class="bottom-progress" style="width: 0.2%"></div>
       </div>
     </div>
     <audio ref="audio"></audio>
@@ -77,14 +129,17 @@ import { mapGetters } from "vuex";
 import api from "@/api";
 
 export default {
-  data(){
-    return{
-      fullScreen: true
-    }
+  data() {
+    return {
+      fullScreen: false,
+    };
   },
-  methods:{
-    showFullScreen(){
-      this.fullScreen = false
+  methods: {
+    showFullScreen() {
+      this.fullScreen = true;
+    },
+    showMiniScreen() {
+      this.fullScreen = false;
     }
   },
   computed: {
@@ -99,13 +154,13 @@ export default {
         const { data, code } = await api.MusicUrl(newSong.id);
         if (data && code === 200) {
           newSong = { ...newSong, url: data[0].url };
-        } else{
-          alert('请求音乐出错')
+        } else {
+          alert("请求音乐出错");
         }
       }
 
-      this.$refs.audio.src = newSong.url
-      this.$refs.audio.play()
+      this.$refs.audio.src = newSong.url;
+      this.$refs.audio.play();
     },
   },
 };
@@ -401,7 +456,7 @@ export default {
       width px2rem(60px)
       text-align center
       padding 0 px2rem(20px)
-      .icon 
+      .iconfont 
         font-size 30px
         color #fff
     .bottom-progress-bar 

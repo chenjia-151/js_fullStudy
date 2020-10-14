@@ -3,6 +3,7 @@
     <div class="search-box-wrapper">
       <v-search-box @query="onQueryChange"></v-search-box>
     </div>
+
     <!-- 热搜 -->
     <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
       <v-scroll class="shortcut" ref="shortcut">
@@ -28,10 +29,12 @@
         </div>
       </v-scroll>
     </div>
+
     <!-- 搜索结果列表 -->
     <div class="search-result" ref="searchResult" v-show="query">
       <v-search-result :query="query" @select="saveSearch"></v-search-result>
     </div>
+
   </div>
 </template>
 
@@ -51,18 +54,23 @@ export default {
     "v-search-result": searchResult,
     "v-scroll": scroll,
   },
+
   mixins: [searchMixin],
+
   data() {
     return {
       hotKey: []
     };
   },
+
   computed: {
     ...mapGetters(["searchHistory"]),
   },
+
   created() {
     this._getHotKey();
   },
+
   methods: {
 
     _getHotKey() {
@@ -75,8 +83,8 @@ export default {
 
     ...mapActions(
       [
-        "deleteSearchHistory", 
-        "clearSearchHistory", 
+        "deleteSearchHistory",
+        "clearSearchHistory",
         "saveSearchHistory",
         "selectPlaySong"
       ]
@@ -89,11 +97,12 @@ export default {
       this.selectPlaySong(song)
     }
   },
+
   watch: {
     query(newQuery) {
       if (newQuery) {
         setTimeout(() => {
-          this.$refs.shortcut.refresh;
+          this.$refs.shortcut.refresh();
         }, 20);
       }
     },

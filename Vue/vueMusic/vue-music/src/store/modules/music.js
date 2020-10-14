@@ -34,6 +34,7 @@ const actions = {
 
         // 查找当前播放列表中是否存在想要播放的这首歌
         let fpIndex = findIndex(playlist, song)
+        
         // 如果已经包含这首歌
         if (fpIndex > -1) {
             currentIndex = fpIndex

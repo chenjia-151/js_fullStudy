@@ -1,5 +1,73 @@
 <template>
   <div class="player">
+    <div class="normal-player" v-show="fullScreen">
+      <div class="background">
+        <img src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" alt="">
+      </div>
+      <div class="top">
+        <div class="back" @click="showFullScreen">
+          <i class="iconfont">&#xe727;</i>
+        </div>
+        <h1 class="title">有何不可</h1>
+        <h2 class="subtitle">许嵩</h2>
+      </div>
+      <div class="middle">
+        <div class="middle-l">
+          <div class="cd-wrapper">
+            <div class="cd" style="transform: matrix(0.975917, 0.218143, -0.218143, 0.975917, 0, 0) matrix(-0.939157, -0.343488, 0.343488, -0.939157, 0, 0)">
+              <img class="image" src="https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg" alt="">
+              <div class="play"></div>
+            </div>
+          </div>
+          <div class="playing-lyric-wrapper">
+            <div class="playing-lyric">
+              作词：许嵩
+            </div>
+          </div>
+        </div>
+        <div class="middle-r" style="transform: translate3d(0px, 0px, 0px); transition-duration: 300ms;">
+          <div class="lyric-wrapper" style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 1000ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+            <div>
+              <p class="text">作曲：许嵩</p>
+              <p class="text current">作词：许嵩</p>
+            </div>
+            <div class="pure-music"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="dot-wrapper">
+          <span class="dot"></span>
+          <span class="dot active"></span>
+        </div>
+        <div class="progress-wrapper">
+          <span class="time time-l">0:00</span>
+          <div class="progress-bar-wrapper"></div>
+          <span class="time time-r">3:56</span>
+        </div>
+        <div class="operators-box">
+          <div class="operators">
+            <div class="icon-box i-left">
+              <i class="iconfont" style="font-size: 20px;">&#xe617;</i>
+            </div>
+            <div class="icon-box i-left">
+              <i class="iconfont">&#xe62f;</i>
+            </div>
+            <div class="icon-box i-center">
+              <div>
+                <i class="iconfont">&#xe624;</i>
+              </div>
+            </div>
+            <div class="icon-box i-right">
+              <i class="iconfont">&#xe62e;</i>
+            </div>
+            <div class="icon-box i-right">
+              <i class="iconfont" style="font-size: 28px;">&#xe636;</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <audio ref="audio"></audio>
   </div>
 </template>
@@ -9,6 +77,16 @@ import { mapGetters } from "vuex";
 import api from "@/api";
 
 export default {
+  data(){
+    return{
+      fullScreen: true
+    }
+  },
+  methods:{
+    showFullScreen(){
+      this.fullScreen = false
+    }
+  },
   computed: {
     ...mapGetters(["currentSong"]),
   },
@@ -22,7 +100,7 @@ export default {
         if (data && code === 200) {
           newSong = { ...newSong, url: data[0].url };
         } else{
-            alert('请求音乐出错')
+          alert('请求音乐出错')
         }
       }
 
@@ -63,7 +141,7 @@ export default {
         top 0
         left px2rem(12px)
         z-index 50
-        .icon 
+        .iconfont 
           display block
           height px2rem(100px)
           line-height px2rem(100px)
@@ -98,6 +176,8 @@ export default {
         width 100%
         height 0
         padding-top 80%
+        opacity 1
+        transition-duration 300ms
         .cd-wrapper 
           position absolute
           left 10%
@@ -203,7 +283,7 @@ export default {
         transform translate3d(-50%, 0, 0)
         overflow hidden
         z-index -1
-        &after 
+        &.after 
           content ''
           width 100%
           height 100%
@@ -244,7 +324,7 @@ export default {
             justify-content center
             border-radius 50%
             background #fff
-            .icon 
+            .iconfont  
               margin-top px2rem(4px)
               font-size 30px
               display inline-block

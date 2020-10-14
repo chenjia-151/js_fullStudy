@@ -145,13 +145,13 @@ export default {
       this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments);
     },
   },
-  watch:{
-      data(){
-          setTimeout(() => {
-             this.refresh() 
-          }, this.refreshDelay);
-      }
-  }
+  watch: {
+    data() {
+      setTimeout(() => {
+        this.refresh();
+      }, this.refreshDelay);
+    },
+  },
 };
 </script>
 

@@ -94,7 +94,7 @@
     </div>
     <div class="mini-player" v-show="!fullScreen">
       <div class="picture">
-        <div class="imgWrapper"  @click="showFullScreen">
+        <div class="imgWrapper" @click="showFullScreen">
           <img
             width="40"
             height="40"
@@ -140,7 +140,7 @@ export default {
     },
     showMiniScreen() {
       this.fullScreen = false;
-    }
+    },
   },
   computed: {
     ...mapGetters(["currentSong"]),

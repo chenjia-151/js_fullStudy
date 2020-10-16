@@ -65,5 +65,13 @@ export default {
         return fetchGet('/song/url', {   //  id 的接收要以对象的形式
             id
         })
+    },
+    // 获取排行榜单
+    MusicRank(params){
+        return fetchGet('/toplist', params)
+    },
+    // 
+    MusicRankDetail(){
+        return fetchGet('')
     }
 }

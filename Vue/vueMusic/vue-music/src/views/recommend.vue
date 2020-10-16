@@ -1,31 +1,34 @@
 <template>
   <div>
-    <van-swipe :autoplay="3000">
-      <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img v-lazy="image" />
-      </van-swipe-item>
-    </van-swipe>
+    <!-- 轮播图 -->
+    <v-swipe></v-swipe>
+
+    <h1 class="hotRank">热门歌单推荐</h1>
+
+    
   </div>
 </template>
 
 <script>
+import swipe from "@/components/swipe"
 export default {
   data() {
-    return {
-      images: [
-        'https://img.yzcdn.cn/vant/apple-1.jpg',
-        'https://img.yzcdn.cn/vant/apple-2.jpg',
-      ],
-    };
+    return {}
   },
+  methods:{},
+  components:{
+    'v-swipe': swipe
+  }
 };
 </script>
 
-<style lang="stylus" scoped>
-.my-swipe .item
-    color: #fff;
-    font-size: 20px;
-    line-height: 150px;
-    text-align: center;
-    background-color: #39a9ed;
+<style lang='stylus' scoped>
+@import "../assets/css/function.styl"
+.hotRank
+  color #ca2349
+  width 100%
+  height px2rem(100px)
+  line-height px2rem(100px)
+  text-align center
+  align-items center
 </style>

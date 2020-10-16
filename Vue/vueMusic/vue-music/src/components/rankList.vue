@@ -1,61 +1,89 @@
 <template>
   <div class="rank">
-    <div class="ranklist">
-      <ul>
-        <li class="item purple">
-          <div class="img">
-            <img
-              src="https://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg"
-              style="width: 100px; height: 100px; border-radius: 10px"
-              alt=""
-            />
-          </div>
-          <ul class="songlist">
-            <li class="song">
-              <span>1 熬夜-摩登兄弟</span>
-            </li>
-            <li class="song">
-              <span>2 声声慢-张一山</span>
-            </li>
-            <li class="song">
-              <span>3 沉醉的青丝-林宝磬</span>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="ranklist">
+    <v-scroll>
+      <div class="ranklist" v-for="(item, index) in rankMusic" :key="index">
         <ul>
-            <li class="item purple">
-          <div class="img">
-            <img
-              src="https://p1.music.126.net/vkkfXP8VyUHJKCJWJdKs-A==/109951165286069895.jpg"
-              style="width: 100px; height: 100px; border-radius: 10px"
-              alt=""
-            />
-          </div>
-          <ul class="songlist">
-            <li class="song title">
-                <span>新说唱热歌榜</span>
-            </li>
-            <li class="song update">
-                <span>每周一更新</span>
-            </li>
-          </ul>
-        </li>
+          <li class="item purple">
+            <div class="img">
+              <img
+                :src="item.coverImgUrl"
+                style="width: 100px; height: 100px; border-radius: 10px"
+                alt=""
+              />
+            </div>
+            <ul class="songlist">
+              <li class="song">
+                <span>1 熬夜-摩登兄弟</span>
+              </li>
+              <li class="song">
+                <span>2 声声慢-张一山</span>
+              </li>
+              <li class="song">
+                <span>3 沉醉的青丝-林宝磬</span>
+              </li>
+            </ul>
+          </li>
         </ul>
-    </div>
+      </div>
+      <div class="ranklist">
+        <ul>
+          <li class="item purple">
+            <div class="img">
+              <img
+                src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3009849830,2271155855&fm=26&gp=0.jpg"
+                style="width: 100px; height: 100px; border-radius: 10px"
+                alt=""
+              />
+            </div>
+            <ul class="songlist">
+              <li class="song title">
+                <span>新说唱热歌榜</span>
+              </li>
+              <li class="song update">
+                <span>每周一更新</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </v-scroll>
   </div>
 </template>
 
 <script>
-export default {};
+import scroll from "@/components/scroll";
+import api from "@/api";
+
+export default {
+  data() {
+    return {
+      rankMusic: [],
+    };
+  },
+
+  components: {
+    "v-scroll": scroll,
+  },
+
+  methods: {
+    fetchResult() {
+      api.MusicRank().then((res) => {
+        console.log(res);
+        this.rankMusic = res.list
+      });
+    }
+  },
+  created(){
+    this.fetchResult()
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
 @import '../assets/css/function.styl';
 .rank
     width 100%
+    height 100%
     position fixed
     top px2rem(180px)
     bottom 0
@@ -96,5 +124,3 @@ export default {};
                 .update
                     font-size px2rem(35px)
 </style>
-
-

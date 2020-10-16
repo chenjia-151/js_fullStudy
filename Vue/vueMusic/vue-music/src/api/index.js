@@ -68,10 +68,10 @@ export default {
     },
     // 获取排行榜单
     MusicRank(params){
-        return fetchGet('/toplist', params)
+        return fetchGet('/toplist/detail', params)
     },
-    // 
+    // 获取广告
     MusicRankDetail(){
-        return fetchGet('')
+        return fetchGet('/banner')
     }
 }

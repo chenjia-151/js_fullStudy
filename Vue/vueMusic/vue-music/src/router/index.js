@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 const search = () => import('@/views/search')
 const rank = () => import('@/views/rank')
 const recommend = () => import('@/views/recommend')
+const singer = () => import('@/views/singer')
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/recommend',
     name: 'recommend',
     component: recommend
+  },
+  {
+    path: '/singer',
+    name: 'singer',
+    component: singer
   }
 ]
 

@@ -19,7 +19,7 @@ export default {
   methods:{
     fetchResult(){
       api.MusicRankDetail().then((res)=>{
-        console.log(res);
+        // console.log(res);
         this.pictures = res.banners
       })
     }

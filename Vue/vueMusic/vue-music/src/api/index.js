@@ -73,5 +73,13 @@ export default {
     // 获取广告
     MusicRankDetail(){
         return fetchGet('/banner')
+    },
+    // 获取人气歌单
+    popularMusic(){
+        return fetchGet('/top/playlist')
+    },
+    // 获取歌手
+    singerList(){
+        return fetchGet('/toplist/artist')
     }
 }

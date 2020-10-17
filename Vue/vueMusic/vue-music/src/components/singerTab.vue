@@ -26,7 +26,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../assets/css/function.styl';
-
 .tab
     display flex
     height px2rem(88)
@@ -45,4 +44,3 @@ export default {
                 color #ea2448
                 border-bottom 2px solid #ea2448
 </style>
-

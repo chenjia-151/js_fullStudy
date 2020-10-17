@@ -79,7 +79,7 @@ export default {
         return fetchGet('/top/playlist')
     },
     // 获取歌手
-    singerList(){
-        return fetchGet('/toplist/artist')
+    singerList(type){
+        return fetchGet('/toplist/artist', type)
     }
 }

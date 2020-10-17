@@ -29,7 +29,7 @@ export default {
   methods: {
     fetchResult() {
       api.popularMusic().then((res) => {
-        console.log(res);
+        // console.log(res);
         this.playList = res.playlists;
       });
     },

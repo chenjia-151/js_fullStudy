@@ -5,6 +5,10 @@ const search = () => import('@/views/search')
 const rank = () => import('@/views/rank')
 const recommend = () => import('@/views/recommend')
 const singer = () => import('@/views/singer')
+const Chinese = () => import('@/views/Chinese')
+const Europe = () => import('@/views/Europe')
+const Korea = () => import('@/views/Korea')
+const Japan = () => import('@/views/Japan')
 
 Vue.use(VueRouter)
 
@@ -27,7 +31,29 @@ const routes = [
   {
     path: '/singer',
     name: 'singer',
-    component: singer
+    component: singer,
+    children: [
+      {
+        path: '/Chinese',
+        name: 'Chinese',
+        component: Chinese
+      },
+      {
+        path: '/Europe',
+        name: 'Europe',
+        component: Europe
+      },
+      {
+        path: '/Korea',
+        name: 'Korea',
+        component: Korea
+      },
+      {
+        path: '/Japan',
+        name: 'Japan',
+        component: Japan
+      },
+    ]
   }
 ]
 

@@ -87,15 +87,21 @@ export default {
   width 100%
   height 100%
   position fixed
+  z-index -1
   top px2rem(180px)
   bottom 0
+  box-sizing border-box
+
   .ranklist
+      box-sizing border-box
       margin 0 px2rem(20px) px2rem(20px) px2rem(20px)
       display flex
       height px2rem(238px)
       background-color #5430b4
       border-radius px2rem(20px)
       .item
+          width 100%
+          box-sizing border-box
           padding px2rem(20px)
           display flex
           justify-content space-between
@@ -105,12 +111,13 @@ export default {
               height px2rem(100px)
               border-radius px2rem(20px)
           .songlist
-              flex auto
               display flex
               flex-direction column
+              box-sizing border-box
               margin-left px2rem(20px)
               .song
                   overflow hidden
+                  box-sizing border-box
                   width px2rem(500px)
                   align-items center
                   margin px2rem(18px)

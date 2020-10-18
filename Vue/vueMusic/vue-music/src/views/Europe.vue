@@ -2,7 +2,7 @@
   <div class="title">
     <ul v-for="(item, index) in singerList" :key="index">
       <li class="item">
-        <div class="left">1</div>
+        <!-- <div class="left">1</div> -->
         <div class="center">
           <img
             class="image"
@@ -37,7 +37,7 @@ export default {
   methods:{
     fetchResult(){
       api.singerLists2().then((res)=>{
-        console.log(res);
+        // console.log(res);
         this.singerList = res.list.artists
       })
     }
@@ -70,6 +70,7 @@ export default {
     .center
       width px2rem(180px)
       margin-right px2rem(40px)
+      margin-left px2rem(20px)
       .image
         margin-top px2rem(20px)
         border-radius px2rem(20px)

@@ -77,8 +77,8 @@ export default {
         return fetchGet('/top/playlist')
     },
     // 获取华语歌手
-    singerLists1() {
-        return fetchGet('/toplist/artist?type=1')
+    singerLists1(params) {
+        return fetchGet('/toplist/artist?type=1', params)
     },
     // 获取欧美歌手
     singerLists2() {

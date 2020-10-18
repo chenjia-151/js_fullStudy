@@ -2,7 +2,7 @@
   <div class="title">
     <ul v-for="(item, index) in singerList" :key="index">
       <li class="item">
-        <div class="left">1</div>
+        <!-- <div class="left">1</div> -->
         <div class="center">
           <img
             class="image"
@@ -52,14 +52,19 @@ export default {
 @import '../assets/css/function.styl';
 .title
   background-color #2e2e2e
-  // width 100%
-  // height 100px
+  width 100%
+  height 100%
   box-sizing border-box
+  position fixed
+  overflow hidden
+  z-index -1
+  top px2rem(776px)
   .item
     width 100%
     height px2rem(220px)
     margin px2rem(20px) px2rem(20px) px2rem(20px) 0
     display flex
+    box-sizing border-box
     .left
       color red
       width px2rem(90px)
@@ -70,6 +75,7 @@ export default {
     .center
       width px2rem(180px)
       margin-right px2rem(40px)
+      margin-left px2rem(20px)
       .image
         margin-top px2rem(20px)
         border-radius px2rem(20px)

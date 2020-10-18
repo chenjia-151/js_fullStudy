@@ -34,22 +34,22 @@ const routes = [
     component: singer,
     children: [
       {
-        path: '/Chinese',
+        path: 'Chinese',
         name: 'Chinese',
         component: Chinese
       },
       {
-        path: '/Europe',
+        path: 'Europe',
         name: 'Europe',
         component: Europe
       },
       {
-        path: '/Korea',
+        path: 'Korea',
         name: 'Korea',
         component: Korea
       },
       {
-        path: '/Japan',
+        path: 'Japan',
         name: 'Japan',
         component: Japan
       },

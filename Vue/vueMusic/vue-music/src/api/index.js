@@ -61,25 +61,35 @@ export default {
         return fetchGet('/search', params)
     },
     // 获取歌曲的url
-    MusicUrl(id){
-        return fetchGet('/song/url', {   //  id 的接收要以对象的形式
-            id
-        })
+    MusicUrl(id) {
+        return fetchGet('/song/url', { id })  //  id 的接收要以对象的形式
     },
     // 获取排行榜单
-    MusicRank(params){
+    MusicRank(params) {
         return fetchGet('/toplist/detail', params)
     },
     // 获取广告
-    MusicRankDetail(){
+    MusicRankDetail() {
         return fetchGet('/banner')
     },
     // 获取人气歌单
-    popularMusic(){
+    popularMusic() {
         return fetchGet('/top/playlist')
     },
-    // 获取歌手
-    singerList(type){
-        return fetchGet('/toplist/artist', type)
+    // 获取华语歌手
+    singerLists1() {
+        return fetchGet('/toplist/artist?type=1')
+    },
+    // 获取欧美歌手
+    singerLists2() {
+        return fetchGet('/toplist/artist?type=2')
+    },
+    // 获取韩国歌手
+    singerLists3() {
+        return fetchGet('/toplist/artist?type=3')
+    },
+    // 获取日本歌手
+    singerLists4() {
+        return fetchGet('/toplist/artist?type=4')
     }
 }

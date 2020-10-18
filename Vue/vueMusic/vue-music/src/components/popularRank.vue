@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <ul>
+    <ul class="list-item">
       <li class="item" v-for="(item, index) in playList" :key="index">
         <div class="image">
           <img
@@ -43,11 +43,17 @@ export default {
 <style lang='stylus' scoped>
 @import "../assets/css/function.styl"
 .list
-    width 100%
+    width 100% 
+    height 100%
     position fixed
-    height px2rem(160px)
-    background-color #201d4d
-    .item
+    z-index -1
+    // box-sizing border-box
+    top px2rem(600px)
+    .list-item
+      background-color #201d4d
+      // box-sizing border-box
+      .item
+        // box-sizing border-box
         display flex
         margin 0 px2rem(40px) px2rem(40px) px2rem(40px)
         align-items center

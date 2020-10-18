@@ -91,7 +91,6 @@ export default {
   top px2rem(180px)
   bottom 0
   box-sizing border-box
-
   .ranklist
       box-sizing border-box
       margin 0 px2rem(20px) px2rem(20px) px2rem(20px)

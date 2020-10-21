@@ -34,5 +34,5 @@ export default {
     line-height px2rem(100px)
     text-align center
     align-items center
-    background-color #201d4d
+    background-color #9b9b9b
 </style>

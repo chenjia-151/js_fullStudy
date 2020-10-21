@@ -50,7 +50,7 @@ export default {
     // box-sizing border-box
     top px2rem(600px)
     .list-item
-      background-color #201d4d
+      background-color #9b9b9b
       // box-sizing border-box
       .item
         // box-sizing border-box

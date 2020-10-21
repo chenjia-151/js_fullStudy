@@ -1,7 +1,7 @@
 <template>
   <div class="tab">
       <router-link tag="div" class="tab-item" to="/recommend">
-          <span class="tab-link">歌单</span>
+          <span class="tab-link">推荐</span>
       </router-link>
 
       <router-link tag="div" class="tab-item" to="/singer">

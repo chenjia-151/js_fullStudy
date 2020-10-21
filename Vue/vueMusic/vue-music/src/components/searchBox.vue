@@ -49,7 +49,7 @@ export default {
   width 100%
   padding 0 px2rem(14)
   height px2rem(74)
-  background #2f3054
+  background #fff
   border-radius 6px
   box-sizing border-box
   .iconfont
@@ -59,7 +59,7 @@ export default {
     flex 1
     margin 0 5px
     line-height px2rem(36)
-    background #2f3054
+    background #fff
     color #ffffff
     font-size 14px
     outline 0

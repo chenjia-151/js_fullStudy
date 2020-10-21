@@ -116,9 +116,9 @@
       <div class="control">
         <i class="iconfont">&#xe636;</i>
       </div>
-      <div class="bottom-progress-bar">
+      <!-- <div class="bottom-progress-bar">
         <div class="bottom-progress" style="width: 0.2%"></div>
-      </div>
+      </div> -->
     </div>
     <audio ref="audio"></audio>
   </div>
@@ -406,11 +406,11 @@ export default {
     align-items center
     position fixed
     left 0
-    bottom px2rem(5px)
+    bottom 0
     z-index 180
     width 100%
-    height px2rem(105px)
-    background #ea2448
+    height px2rem(108px)
+    background #5f6368
     &.mini-enter-active,
     &.mini-leave-active 
       transition all 0.4s

@@ -135,7 +135,7 @@ export default {
           padding px2rem(10px) px2rem(20px)
           margin 0 px2rem(20px) px2rem(20px) 0
           border-radius 6px
-          background #2f3054
+          background #5f6368
           font-size 14px
           color hsla(0,0%,100%,.3)
       .search-history 

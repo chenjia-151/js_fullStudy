@@ -70,7 +70,7 @@ export default {
   methods: {
     fetchResult() {
       api.MusicRank().then((res) => {
-        // console.log(res);
+        console.log(res);
         this.rankMusic = res.list;
       });
     },
@@ -96,8 +96,9 @@ export default {
       margin 0 px2rem(20px) px2rem(20px) px2rem(20px)
       display flex
       height px2rem(238px)
-      background-color #5430b4
+      background-color #9b9b9b
       border-radius px2rem(20px)
+      border 1px solid #000
       .item
           width 100%
           box-sizing border-box

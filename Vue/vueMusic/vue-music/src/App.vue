@@ -64,7 +64,8 @@ body {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(8, 5, 58, 1);
+  // background: rgba(8, 5, 58, 1);
+  background: #9b9b9b
   color: #fff;
 }
 </style>

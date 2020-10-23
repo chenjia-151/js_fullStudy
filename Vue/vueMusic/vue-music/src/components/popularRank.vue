@@ -1,5 +1,6 @@
 <template>
-  <div class="list">
+  <v-scroll class="scroll" :pullup="pullup">
+    <div class="list">
     <ul class="list-item">
       <li class="item" v-for="(item, index) in playList" :key="index">
         <div class="image">
@@ -16,15 +17,27 @@
       </li>
     </ul>
   </div>
+  </v-scroll>
 </template>
 
 <script>
+import scroll from '@/components/scroll'
 import api from "@/api";
 export default {
+  props: {
+    query: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
       playList: [],
+      pullup: true
     };
+  },
+  components:{
+    'v-scroll': scroll
   },
   methods: {
     fetchResult() {
@@ -42,7 +55,10 @@ export default {
 
 <style lang='stylus' scoped>
 @import "../assets/css/function.styl"
-.list
+.scroll
+  height 100%
+  overflow hidden
+  .list
     width 100% 
     height 100%
     position fixed

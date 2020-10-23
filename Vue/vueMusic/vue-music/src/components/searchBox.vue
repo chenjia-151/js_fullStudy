@@ -60,7 +60,7 @@ export default {
     margin 0 5px
     line-height px2rem(36)
     background #fff
-    color #ffffff
+    color #757575
     font-size 14px
     outline 0
   .icon-dismiss

@@ -14,9 +14,13 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/search',
-    name: 'search',
-    component: search
+    path: '',
+    component: recommend
+  },
+  {
+    path: '/recommend',
+    name: 'recommend',
+    component: recommend
   },
   {
     path: '/rank',
@@ -24,9 +28,9 @@ const routes = [
     component: rank
   },
   {
-    path: '/recommend',
-    name: 'recommend',
-    component: recommend
+    path: '/search',
+    name: 'search',
+    component: search
   },
   {
     path: '/singer',

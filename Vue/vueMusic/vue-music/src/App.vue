@@ -40,7 +40,7 @@ export default {
 
 <style lang="stylus">
 @font-face {
-  font-family: 'iconfont';  /* project id 2052943 */
+  font-family: 'iconfont';
   src: url('//at.alicdn.com/t/font_2052943_w0hjys545pc.eot');
   src: url('//at.alicdn.com/t/font_2052943_w0hjys545pc.eot?#iefix') format('embedded-opentype'),
   url('//at.alicdn.com/t/font_2052943_w0hjys545pc.woff2') format('woff2'),
@@ -64,7 +64,6 @@ body {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  // background: rgba(8, 5, 58, 1);
   background: #9b9b9b
   color: #fff;
 }

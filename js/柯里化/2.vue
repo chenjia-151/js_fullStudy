@@ -17,7 +17,7 @@ export default {
 
 
 <template>
-  <div id="user">{{user}}</div>
+  <!-- <div id="user">{{user}}</div> -->
 </template>
 
 <script>
@@ -30,9 +30,9 @@ export default {
 
 // 子向父传值
 <template>
-  <div id="app">
+  <!-- <div id="app">
       <div id="user" @getUserName="getUser">{{username}}</div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -52,9 +52,9 @@ export default {
 
 
 <template>
-  <div id="index">
+  <!-- <div id="index">
       <input type="text" @change="setuser" v-model="UserName">
-  </div>
+  </div> -->
 </template>
 
 <script>

@@ -1,48 +1,73 @@
-// 父组件
+// 父向子传值
 <template>
   <div id="app">
-    <v-deal @transfer="getUser"></v-deal>
+      <div id="item" :user="User"></div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      user: "",
-    };
-  },
-  methods: {
-    getUser(msg) {
-      this.user = msg;
-    },
-  },
-};
+    data(){
+        return{
+            User: 'Jack'
+        }
+    }
+}
 </script>
 
 
-
-// 子组件
 <template>
-  <div id="item">
-    <input type="text" v-model="userName" @change="setUser" />
+  <div id="user">{{user}}</div>
+</template>
+
+<script>
+export default {
+    props:['user']
+}
+</script>
+
+
+
+// 子向父传值
+<template>
+  <div id="app">
+      <div id="user" @getUserName="getUser">{{username}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      userName: "",
-    };
-  },
-  methods: {
-    setUser() {
-      this.$emit("transfer", this.userName);
+    data(){
+        return {
+            username: ''
+        }
     },
-  },
-};
+    methods:{
+        getUser(msg){
+            this.username = msg
+        }
+    }
+}
 </script>
 
-<style>
-</style>
+
+<template>
+  <div id="index">
+      <input type="text" @change="setuser" v-model="UserName">
+  </div>
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            UserName: ''
+        }
+    },
+    methods:{
+        setuser(){
+            this.$emit('getUserName', UserName)
+        }
+    }
+}
+</script>

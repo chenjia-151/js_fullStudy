@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .unite {
+            width: 100%;
+            height: 100px;
+        }
+
+        .smile span{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: mistyrose;
+            animation: smile 5s infinite;
+        }
+
+        @keyframes smile {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="unite">
+        <div id="smile">
+            <span></span>
+        </div>
+    </div>
+</body>
+
+</html>
